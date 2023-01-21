@@ -1,8 +1,8 @@
+import ConfettiGenerator from "confetti-js";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import ControlButtons from "./components/ControlButtons";
-import StopWatch from "./components/StopWatch";
 import Timer from "./components/Timer";
 import Video from "./components/Video";
 import { hiragana, hiraganaType } from "./data/hiragana";
@@ -34,6 +34,9 @@ const randomDeck = () => {
 };
 
 const data = randomDeck();
+
+const confettiSettings = { target: "my-canvas" };
+const confetti = new ConfettiGenerator(confettiSettings);
 
 function App() {
   const [select1, setSelect1] = useState<string>();
@@ -91,11 +94,14 @@ function App() {
     setClicks(0);
     const data = randomDeck();
     setCharacters(data);
+    confetti.clear();
   };
 
   useEffect(() => {
-    if (found.length === characters.length / 2)
+    if (found.length === characters.length / 2) {
       stopWatchProps.handlePauseResume();
+      confetti.render();
+    }
   }, [found, characters]);
 
   const selectCards = { one: select1, two: select2 };
@@ -103,7 +109,7 @@ function App() {
   return (
     <div className="App w-full ">
       <Video hide={hide} />
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center sticky top-0 py-2 bg-main">
         <ControlButtons
           {...stopWatchProps}
           handleReset={reset}
