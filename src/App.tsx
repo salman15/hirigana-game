@@ -1,4 +1,3 @@
-import ConfettiGenerator from "confetti-js";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
@@ -7,6 +6,7 @@ import Timer from "./components/Timer";
 import Video from "./components/Video";
 import { hiragana, hiraganaType } from "./data/hiragana";
 import useStopWatch from "./hooks/useStopWatch";
+import { createConfetti } from "./confetti/confetti";
 
 const shuffle = (array: Array<hiraganaType>) => {
   let currentIndex = array.length,
@@ -35,8 +35,7 @@ const randomDeck = () => {
 
 const data = randomDeck();
 
-const confettiSettings = { target: "my-canvas" };
-const confetti = new ConfettiGenerator(confettiSettings);
+const confetti = createConfetti();
 
 function App() {
   const [select1, setSelect1] = useState<string>();
