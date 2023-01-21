@@ -108,7 +108,7 @@ function App() {
   return (
     <div className="App w-full ">
       <Video hide={hide} />
-      <div className="flex justify-between items-center sticky top-0 py-2 bg-main">
+      <div className="flex justify-between items-center sticky top-0 py-2 bg-main z-20">
         <ControlButtons
           {...stopWatchProps}
           handleReset={reset}
@@ -123,7 +123,7 @@ function App() {
           <Timer time={stopWatchProps.time} />
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {characters.map((item, index) => (
           <Card
             found={!!found.find((found) => found === item.hiragana)}
