@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import ControlButtons from "./components/ControlButtons";
 import StopWatch from "./components/StopWatch";
+import Timer from "./components/Timer";
 import Video from "./components/Video";
 import { hiragana, hiraganaType } from "./data/hiragana";
 import useStopWatch from "./hooks/useStopWatch";
@@ -40,6 +41,7 @@ function App() {
   const [characters, setCharacters] = useState(data);
   const [found, setFound] = useState<string[]>([]);
   const [hide, setHide] = useState(true);
+  const [clicks, setClicks] = useState(0);
   const toggleHide = () => {
     setHide(!hide);
   };
@@ -76,6 +78,7 @@ function App() {
   };
 
   const setSelectedCards = (hiragana: string) => {
+    setClicks(clicks + 1);
     startStopWatch();
     toggleCard(hiragana);
   };
@@ -85,22 +88,36 @@ function App() {
     setFound([]);
     setSelect1(undefined);
     setSelect2(undefined);
+    setClicks(0);
     const data = randomDeck();
     setCharacters(data);
   };
+
+  useEffect(() => {
+    if (found.length === characters.length / 2)
+      stopWatchProps.handlePauseResume();
+  }, [found, characters]);
 
   const selectCards = { one: select1, two: select2 };
 
   return (
     <div className="App w-full ">
       <Video hide={hide} />
-      <ControlButtons
-        {...stopWatchProps}
-        handleReset={reset}
-        hide={hide}
-        toggleHide={toggleHide}
-      />
-      <StopWatch {...stopWatchProps} />
+      <div className="flex justify-between items-center">
+        <ControlButtons
+          {...stopWatchProps}
+          handleReset={reset}
+          hide={hide}
+          toggleHide={toggleHide}
+        />
+        <div className="w-full flex flex-col items-end">
+          <p className="w-full text-right">
+            Found: ({found.length}/{characters.length / 2})
+          </p>
+          <p className="text-right">Clicks: ({clicks})</p>
+          <Timer time={stopWatchProps.time} />
+        </div>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {characters.map((item, index) => (
           <Card
