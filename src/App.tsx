@@ -27,12 +27,17 @@ const shuffle = (array: Array<hiraganaType>) => {
   return array;
 };
 
-const shuffleHiragana = [...hiragana].slice(0, 12);
-const data = shuffle([...shuffleHiragana, ...shuffleHiragana]);
+const randomDeck = () => {
+  const shuffleHiragana = shuffle(hiragana).slice(0, 12);
+  return shuffle([...shuffleHiragana, ...shuffleHiragana]);
+};
+
+const data = randomDeck();
 
 function App() {
   const [select1, setSelect1] = useState<string>();
   const [select2, setSelect2] = useState<string>();
+  const [characters, setCharacters] = useState(data);
   const [found, setFound] = useState<string[]>([]);
   const [hide, setHide] = useState(true);
   const toggleHide = () => {
@@ -80,6 +85,8 @@ function App() {
     setFound([]);
     setSelect1(undefined);
     setSelect2(undefined);
+    const data = randomDeck();
+    setCharacters(data);
   };
 
   const selectCards = { one: select1, two: select2 };
@@ -95,7 +102,7 @@ function App() {
       />
       <StopWatch {...stopWatchProps} />
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
-        {data.map((item, index) => (
+        {characters.map((item, index) => (
           <Card
             found={!!found.find((found) => found === item.hiragana)}
             item={item}

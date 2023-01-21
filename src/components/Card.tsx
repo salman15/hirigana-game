@@ -27,6 +27,7 @@ const Card: FC<{
     found;
   return (
     <div
+      aria-label={item.hiragana}
       className={`h-64 w-full p-4 bg-blue-600 rounded shadow-lg flex items-center justify ${
         found ? "opacity-50 center pointer-events-none " : ""
       }`}
