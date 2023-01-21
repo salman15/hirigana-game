@@ -1,5 +1,5 @@
 {
-  "name": "hirigana-game",
+  "name": "hiragana-game",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",
+    "confetti-js": "^0.0.18",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
