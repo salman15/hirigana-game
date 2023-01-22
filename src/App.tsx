@@ -162,7 +162,9 @@ function App() {
         </div>
         {showAll && (
           <>
-            <p className="w-full text-left">Enter Romanji:</p>
+            <p className="w-full text-left">
+              Enter Romanji (use spaces between characters):
+            </p>
             <input
               className="w-full p-4 rounded mb-4"
               placeholder="Type in sentence..."
