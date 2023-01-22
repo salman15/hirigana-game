@@ -67,9 +67,11 @@ export const hiragana = [
   { romanji: "myu", hiragana: "みゅ" },
   { romanji: "myo", hiragana: "みょ" },
   // Y
-  { romanji: "hi", hiragana: "や" },
-  { romanji: "hi", hiragana: "ゆ" },
-  { romanji: "hi", hiragana: "よ" },
+  { romanji: "ya", hiragana: "や" },
+  { romanji: "(i)", hiragana: "（い" },
+  { romanji: "yu", hiragana: "ゆ" },
+  { romanji: "(e)", hiragana: "（え" },
+  { romanji: "yo", hiragana: "よ" },
   // R
   { romanji: "ra", hiragana: "ら" },
   { romanji: "ri", hiragana: "り" },
@@ -82,11 +84,12 @@ export const hiragana = [
   { romanji: "ryo", hiragana: "りょ" },
   // W
   { romanji: "wa", hiragana: "わ" },
-  { romanji: "wo", hiragana: "ゐ" },
-  { romanji: "we", hiragana: "ゑ" },
+  { romanji: "(i)", hiragana: "（い" },
+  { romanji: "(u)", hiragana: "（う" },
+  { romanji: "(e)", hiragana: "（え" },
   { romanji: "o", hiragana: "を" },
   // N
-  { romanji: "Nn", hiragana: "ん" },
+  { romanji: "n", hiragana: "ん" },
   // G
   { romanji: "ga", hiragana: "が" },
   { romanji: "gi", hiragana: "ぎ" },

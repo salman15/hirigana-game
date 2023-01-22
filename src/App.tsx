@@ -28,8 +28,10 @@ const shuffle = (array: Array<hiraganaType>) => {
   return array;
 };
 
+const dataCopy = hiragana.concat();
+
 const randomDeck = () => {
-  const shuffleHiragana = shuffle(hiragana).slice(0, 12);
+  const shuffleHiragana = shuffle(dataCopy).slice(0, 12);
   return shuffle([...shuffleHiragana, ...shuffleHiragana]);
 };
 
@@ -44,6 +46,9 @@ function App() {
   const [found, setFound] = useState<string[]>([]);
   const [hide, setHide] = useState(true);
   const [clicks, setClicks] = useState(0);
+  const [search, setSearch] = useState("");
+  const [showAll, setShowAll] = useState(false);
+  const [translate, setTranslate] = useState("");
   const toggleHide = () => {
     setHide(!hide);
   };
@@ -96,6 +101,33 @@ function App() {
     confetti.clear();
   };
 
+  const handleShowAll = () => {
+    if (showAll) {
+      reset();
+      setShowAll(false);
+    } else {
+      const foundAll = hiragana.map((item) => item.hiragana);
+      setFound(foundAll);
+      setCharacters(hiragana);
+      setShowAll(true);
+      stopWatchProps.handlePauseResume();
+    }
+  };
+
+  const findTranslation = () => {
+    const words = translate.split(" ");
+    const translation = words.map(
+      (word) =>
+        hiragana.find(
+          (text) =>
+            text.hiragana === word.toLowerCase() ||
+            text.romanji === word.toLowerCase()
+        )?.hiragana
+    );
+
+    return translation.join(" ");
+  };
+
   useEffect(() => {
     if (found.length === characters.length / 2) {
       stopWatchProps.handlePauseResume();
@@ -104,27 +136,59 @@ function App() {
   }, [found, characters]);
 
   const selectCards = { one: select1, two: select2 };
-
+  const filteredCharacters = characters.filter(
+    (filter) =>
+      filter.romanji.includes(search) || filter.hiragana.includes(search)
+  );
   return (
     <div className="App w-full ">
       <Video hide={hide} />
-      <div className="flex justify-between items-center sticky top-0 py-2 bg-main z-20">
-        <ControlButtons
-          {...stopWatchProps}
-          handleReset={reset}
-          hide={hide}
-          toggleHide={toggleHide}
-        />
-        <div className="w-full flex flex-col items-end">
-          <p className="w-full text-right">
-            Found: ({found.length}/{characters.length / 2})
-          </p>
-          <p className="text-right">Clicks: ({clicks})</p>
-          <Timer time={stopWatchProps.time} />
+      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+        <div className="flex justify-between items-center w-full">
+          <ControlButtons
+            {...stopWatchProps}
+            handleReset={reset}
+            hide={hide}
+            toggleHide={toggleHide}
+            showAll={handleShowAll}
+          />
+          <div className="w-full flex flex-col items-end">
+            <p className="w-full text-right">
+              Found: ({found.length}/{characters.length / 2})
+            </p>
+            <p className="text-right">Clicks: ({clicks})</p>
+            <Timer time={stopWatchProps.time} />
+          </div>
         </div>
+        {showAll && (
+          <>
+            <p className="w-full text-left">Enter Romanji:</p>
+            <input
+              className="w-full p-4 rounded mb-4"
+              placeholder="Type in sentence..."
+              value={translate}
+              onChange={(e) => setTranslate(e.target.value)}
+            />
+            <p className="w-full text-left">Output in Hiragana:</p>
+            <input
+              className="w-full p-4 rounded mb-4"
+              placeholder="Your text in Hiragana or Romanji"
+              value={findTranslation()}
+              disabled
+            />
+            <p className="w-full text-left">Search:</p>
+            <input
+              className="w-full p-4 rounded mb-4"
+              placeholder="Type in character..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </>
+        )}
       </div>
+
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
-        {characters.map((item, index) => (
+        {filteredCharacters.map((item, index) => (
           <Card
             found={!!found.find((found) => found === item.hiragana)}
             item={item}

@@ -5,6 +5,7 @@ const ControlButtons: FC<{
   handleReset: () => void;
   handlePauseResume: () => void;
   toggleHide: () => void;
+  showAll: () => void;
   hide: boolean;
   isPaused: boolean;
   isActive: boolean;
@@ -13,6 +14,7 @@ const ControlButtons: FC<{
   handlePauseResume,
   handleReset,
   toggleHide,
+  showAll,
   isPaused,
   isActive,
   hide,
@@ -40,6 +42,9 @@ const ControlButtons: FC<{
           {!hide ? "Hide" : "Show"} video
         </button>
         {isActive ? ActiveButtons : StartButton}
+        <button className="w-36" onClick={showAll}>
+          Cheat
+        </button>
       </div>
     </div>
   );
