@@ -53,9 +53,9 @@ export const hiragana = [
   { romanji: "he", hiragana: "へ" },
   { romanji: "ho", hiragana: "ほ" },
   // Digraphans
-  { romanji: "nya", hiragana: "ひゃ" },
-  { romanji: "nyu", hiragana: "ひゅ" },
-  { romanji: "nyo", hiragana: "ひょ" },
+  { romanji: "hya", hiragana: "ひゃ" },
+  { romanji: "hyu", hiragana: "ひゅ" },
+  { romanji: "hyo", hiragana: "ひょ" },
   // M
   { romanji: "ma", hiragana: "ま" },
   { romanji: "mi", hiragana: "み" },
@@ -97,9 +97,9 @@ export const hiragana = [
   { romanji: "ge", hiragana: "げ" },
   { romanji: "go", hiragana: "ご" },
   // Digraphans
-  { romanji: "gya", hiragana: "ぎゃ" },
-  { romanji: "gyu", hiragana: "ぎゅ" },
-  { romanji: "gyo", hiragana: "ぎょ" },
+  { romanji: "gya", hiragana: "ぢゃ" },
+  { romanji: "gyu", hiragana: "ぢゅ" },
+  { romanji: "gyo", hiragana: "ぢょ" },
   // Z
   { romanji: "za", hiragana: "ざ" },
   { romanji: "ji", hiragana: "じ" },
@@ -117,9 +117,9 @@ export const hiragana = [
   { romanji: "de", hiragana: "で" },
   { romanji: "do", hiragana: "ど" },
   // Digraphans
-  { romanji: "ja", hiragana: "ぢゃ" },
-  { romanji: "ju", hiragana: "ぢゅ" },
-  { romanji: "jo", hiragana: "ぢょ" },
+  // { romanji: "ja", hiragana: "ぢゃ" },
+  // { romanji: "ju", hiragana: "ぢゅ" },
+  // { romanji: "jo", hiragana: "ぢょ" },
   // B
   { romanji: "ba", hiragana: "ば" },
   { romanji: "bi", hiragana: "び" },
