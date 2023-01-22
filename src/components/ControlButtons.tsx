@@ -43,7 +43,7 @@ const ControlButtons: FC<{
         </button>
         {isActive ? ActiveButtons : StartButton}
         <button className="w-36" onClick={showAll}>
-          Cheat
+          Practice
         </button>
       </div>
     </div>
