@@ -166,21 +166,21 @@ function App() {
               Enter Romanji (use spaces between characters):
             </p>
             <input
-              className="w-full p-4 rounded mb-4"
+              className="w-full p-4 rounded mb-4 text-gray-800"
               placeholder="Type in sentence..."
               value={translate}
               onChange={(e) => setTranslate(e.target.value)}
             />
             <p className="w-full text-left">Output in Hiragana:</p>
             <input
-              className="w-full p-4 rounded mb-4"
+              className="w-full p-4 rounded mb-4 text-gray-800"
               placeholder="Your text in Hiragana or Romanji"
               value={findTranslation()}
               disabled
             />
             <p className="w-full text-left">Search:</p>
             <input
-              className="w-full p-4 rounded mb-4"
+              className="w-full p-4 rounded mb-4 text-gray-800"
               placeholder="Type in character..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
