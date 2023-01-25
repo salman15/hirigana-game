@@ -55,8 +55,8 @@ function App() {
 
   const stopWatchProps = useStopWatch();
 
-  const handleFound = (hiragana: string) => {
-    const nakedOne = select1 && select1.split("-")[0];
+  const handleFound = (hiragana: string, measureAgainst: string) => {
+    const nakedOne = measureAgainst && measureAgainst.split("-")[0];
     const nakedHiragana = hiragana.split("-")[0];
 
     if (nakedOne === nakedHiragana) {
@@ -69,16 +69,26 @@ function App() {
     !stopWatchProps.isActive && stopWatchProps.handleStart();
 
   const toggleCard = (hiragana: string) => {
+    // If selected deselect
     if (select1 === hiragana) {
       setSelect1(undefined);
-    } else if (select2 === hiragana) {
+    }
+    // If selected deselect
+    else if (select2 === hiragana) {
       setSelect2(undefined);
-    } else if (!select1) {
+    }
+    // If select 1 is not selected select 1
+    else if (!select1) {
       setSelect1(hiragana);
-    } else if (select1 && !select2) {
+      if (select2) handleFound(hiragana, select2);
+    }
+    // If select 2 is not selected select 2 and see if it's found
+    else if (select1 && !select2) {
       setSelect2(hiragana);
-      handleFound(hiragana);
-    } else {
+      handleFound(hiragana, select1);
+    }
+    // default back to selecting the first one and deselecting the second one
+    else {
       setSelect1(hiragana);
       setSelect2(undefined);
     }
