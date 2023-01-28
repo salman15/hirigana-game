@@ -10,10 +10,10 @@ const App: FC = () => {
       <h1>Select your game. / げむおせんたくしま。</h1>
       <div className="flex space-x-4">
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/memory">
-          めもり 🧠
+          めもり / Memory 🧠
         </Link>
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/conversation">
-          かいわ 💬
+          かいわ / Conversation 💬
         </Link>
       </div>
     </div>

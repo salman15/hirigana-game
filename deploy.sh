@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Remove build dir
-rm /BUILD/*
+rm BUILD/*
 
 # Create new build
 yarn build

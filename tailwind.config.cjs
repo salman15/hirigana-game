@@ -9,6 +9,9 @@ module.exports = {
       minWidth: {
         conversationInput: "24em",
       },
+      width: {
+        conversationInput: "24em",
+      },
     },
   },
   plugins: [],

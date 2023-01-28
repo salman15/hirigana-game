@@ -47,7 +47,7 @@ const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
         <div className="flex space-x-4 ">
           <Input
             onChange={handleInput}
-            className="min-w-conversationInput"
+            className="w-conversationInput max-w-full"
             name="translation"
             placeholder="Translate this sentence."
           />
@@ -78,7 +78,7 @@ const Conversations: FC = () => {
         toggleHide={noop}
         showAll={noop}
       />
-      <div className="relative z-10 grid grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
+      <div className="relative z-10 grid grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
         {random.map((item, key) => (
           <Conversation key={key} item={item} />
         ))}
