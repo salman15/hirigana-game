@@ -73,7 +73,7 @@ export const conversations = [
   {
     hiragana: "こんばんは。",
     romanji: "Konbanha",
-    translation: "Good eveningGoodbye.",
+    translation: "Good evening",
   },
   {
     hiragana: "おやすみなさい。",

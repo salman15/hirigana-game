@@ -81,6 +81,7 @@ const Conversations: FC = () => {
     const dataCopy = conversations.concat();
     const random = shuffle(dataCopy).slice(0, 12);
     setData(random);
+    stopWatchProps.handleReset();
   };
 
   return (
