@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import ControlButtons from "../components/ControlButtons";
 import Input from "../components/Input";
+import Timer from "../components/Timer";
 import useStopWatch from "../hooks/useStopWatch";
 import { shuffle } from "../utils/shuffle";
 import { conversations } from "./data/conversations";
@@ -68,17 +69,15 @@ const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
 const Conversations: FC = () => {
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
-  const noop = () => undefined;
   return (
     <div>
-      <ControlButtons
-        {...stopWatchProps}
-        handleReset={noop}
-        hide={false}
-        toggleHide={noop}
-        showAll={noop}
-      />
-      <div className="relative z-10 grid grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
+      <div className="flex justify-between items-center w-full">
+        <ControlButtons {...stopWatchProps} />
+        <div className="w-full flex flex-col items-end">
+          <Timer time={stopWatchProps.time} />
+        </div>
+      </div>
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
         {random.map((item, key) => (
           <Conversation key={key} item={item} />
         ))}
