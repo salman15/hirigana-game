@@ -97,7 +97,7 @@ const Conversations: FC = () => {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
         {data.map((item, key) => (
           <Conversation
-            key={key}
+            key={`${item.hiragana}-${key}`}
             item={item}
             isStarted={stopWatchProps.isActive}
             startGame={stopWatchProps.handleStart}
