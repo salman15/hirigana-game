@@ -15,7 +15,11 @@ const randomDeck = () => {
 
 const random = randomDeck();
 
-const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
+const Conversation: FC<{
+  item: typeof conversations[0];
+  startGame: () => void;
+  isStarted: boolean;
+}> = ({ item, isStarted, startGame }) => {
   const [showTranslation, setShowTranslation] = useState(false);
   const [translation, setTranslation] = useState("");
   const [emoji, setEmoji] = useState<string>();
@@ -36,6 +40,7 @@ const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
     }
 
     setTranslation(value);
+    !isStarted && startGame();
   };
 
   return (
@@ -52,7 +57,7 @@ const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
             name="translation"
             placeholder="Translate this sentence."
           />
-          <button onClick={verify} className="h-12">
+          <button onClick={verify} className="">
             Verify {emoji}
           </button>
         </div>
@@ -69,17 +74,33 @@ const Conversation: FC<{ item: typeof conversations[0] }> = ({ item }) => {
 const Conversations: FC = () => {
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
+
+  const [data, setData] = useState(random);
+
+  const handleReset = () => {
+    const dataCopy = conversations.concat();
+    const random = shuffle(dataCopy).slice(0, 12);
+    setData(random);
+  };
+
   return (
     <div className="m-4">
-      <div className="flex justify-between items-center w-full">
-        <ControlButtons {...stopWatchProps} />
-        <div className="w-full flex flex-col items-end">
-          <Timer time={stopWatchProps.time} />
+      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+        <div className="flex justify-between items-center w-full">
+          <ControlButtons {...stopWatchProps} handleReset={handleReset} />
+          <div className="w-full flex flex-col items-end">
+            <Timer time={stopWatchProps.time} />
+          </div>
         </div>
       </div>
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
-        {random.map((item, key) => (
-          <Conversation key={key} item={item} />
+        {data.map((item, key) => (
+          <Conversation
+            key={key}
+            item={item}
+            isStarted={stopWatchProps.isActive}
+            startGame={stopWatchProps.handleStart}
+          />
         ))}
       </div>
     </div>
