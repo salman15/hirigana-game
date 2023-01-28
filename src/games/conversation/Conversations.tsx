@@ -70,7 +70,7 @@ const Conversations: FC = () => {
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
   return (
-    <div>
+    <div className="m-4">
       <div className="flex justify-between items-center w-full">
         <ControlButtons {...stopWatchProps} />
         <div className="w-full flex flex-col items-end">
