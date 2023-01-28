@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 const Timer: FC<{ time: number }> = ({ time }) => {
   return (

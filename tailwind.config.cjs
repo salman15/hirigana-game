@@ -6,6 +6,9 @@ module.exports = {
       backgroundColor: {
         main: "#242424",
       },
+      minWidth: {
+        conversationInput: "24em",
+      },
     },
   },
   plugins: [],

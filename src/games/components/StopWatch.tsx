@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useStopWatchReturnProps } from "../hooks/useStopWatch";
-import ControlButtons from "./ControlButtons";
 import Timer from "./Timer";
 
 const StopWatch: FC<useStopWatchReturnProps> = ({ time }) => {

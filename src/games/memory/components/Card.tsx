@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from "react";
-import { hiragana, hiraganaType } from "../data/hiragana";
+import { FC, useState } from "react";
 import back from "../assets/card.png";
+import { hiraganaType } from "../data/hiragana";
 
 const Card: FC<{
   found: boolean;
@@ -51,7 +51,7 @@ const Card: FC<{
             )}
           </>
         ) : (
-          <img src={back} />
+          <img className="w-full h-full p-2" src={back} />
         )}
       </div>
     </div>

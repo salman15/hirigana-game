@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 
 const Video: FC<{ hide: boolean }> = ({ hide }) => {
   return (

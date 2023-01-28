@@ -16,7 +16,7 @@ const useStopWatch = (): useStopWatchReturnProps => {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    let interval: null | number = null;
+    let interval: null | number | NodeJS.Timer = null;
 
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
