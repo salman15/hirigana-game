@@ -7,7 +7,7 @@ rm /BUILD/*
 yarn build
 
 # Move new build files
-cp -a /dist/. /BUILD/
+cp -a dist/. BUILD/
 
 # create new release commit
 git add ./BUILD
