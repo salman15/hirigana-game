@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 const ControlButtons: FC<{
   handleStart?: () => void;
@@ -44,6 +45,9 @@ const ControlButtons: FC<{
   return (
     <div className="Control-Buttons w-full">
       <div className=" my-2 w-full flex justify-start items-center space-x-4">
+        <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/">
+          🏠 もどる / Back
+        </Link>
         {toggleHide && (
           <button className="w-36" onClick={toggleHide}>
             {!hide ? "Hide" : "Show"} video

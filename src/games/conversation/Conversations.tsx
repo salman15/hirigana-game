@@ -5,15 +5,7 @@ import Input from "../components/Input";
 import Timer from "../components/Timer";
 import useStopWatch from "../hooks/useStopWatch";
 import { shuffle } from "../utils/shuffle";
-import { conversations } from "./data/conversations";
-
-const dataCopy = conversations.concat();
-
-const randomDeck = () => {
-  return shuffle(dataCopy).slice(0, 12);
-};
-
-const random = randomDeck();
+import { conversations, conversationType } from "./data/conversations";
 
 const Conversation: FC<{
   item: typeof conversations[0];
@@ -71,14 +63,16 @@ const Conversation: FC<{
   );
 };
 
-const Conversations: FC = () => {
+const Conversations: FC<{
+  random: conversationType[];
+  source: conversationType[];
+}> = ({ random, source }) => {
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
-
   const [data, setData] = useState(random);
 
   const handleReset = () => {
-    const dataCopy = conversations.concat();
+    const dataCopy = source.concat();
     const random = shuffle(dataCopy).slice(0, 12);
     setData(random);
     stopWatchProps.handleReset();

@@ -1,4 +1,9 @@
-export const conversations = [
+export type conversationType = {
+  hiragana: string;
+  romanji: string;
+  translation: string;
+};
+export const conversations: conversationType[] = [
   {
     hiragana: "はめじましょう。",
     romanji: "Hajimemashou.",
@@ -45,21 +50,7 @@ export const conversations = [
     romanji: "Chigai masu",
     translation: "No, that's wrong",
   },
-  {
-    hiragana: "なまえ",
-    romanji: "namae",
-    translation: "name",
-  },
-  {
-    hiragana: "しけん、しゅくだい",
-    romanji: "Shikesan, Shukudai",
-    translation: "test, homework",
-  },
-  {
-    hiragana: "しつもん、こたえ、れい",
-    romanji: "Shitsumon, kotae, rei",
-    translation: "question, answer, example",
-  },
+
   {
     hiragana: "おはよう ございます。",
     romanji: "Ohayou gozaimasu",
@@ -96,21 +87,6 @@ export const conversations = [
     translation: "Excuse me ",
   },
   {
-    hiragana: "おねがいします。",
-    romanji: "Onegaishimasu",
-    translation: "Please",
-  },
-  {
-    hiragana: "わたし",
-    romanji: "Watashi",
-    translation: "I",
-  },
-  {
-    hiragana: "あなた",
-    romanji: "Anata",
-    translation: "You",
-  },
-  {
     hiragana: "あのかた",
     romanji: "Ano kata",
     translation: "that person",
@@ -138,7 +114,7 @@ export const conversations = [
   {
     hiragana: "おなまえは？",
     romanji: "Onamae wa",
-    translation: "May I have your name?",
+    translation: "May I have your name",
   },
   {
     hiragana: "こちらは～さんです。",
@@ -153,7 +129,7 @@ export const conversations = [
   {
     hiragana: "どうぞ。",
     romanji: "Douzo",
-    translation: "Here you are.",
+    translation: "Here you are",
   },
   {
     hiragana: "ありがとう",
@@ -179,5 +155,10 @@ export const conversations = [
     hiragana: "こちらこそ［どうぞ］よろしく［おねがいします］。",
     romanji: "Kochirakoso [douzo] yorushiku [onegaishimasu]",
     translation: "Pleased to meet you, too",
+  },
+  {
+    hiragana: "きょはなにをか",
+    romanji: "Kyō wa nani o shimasu ka",
+    translation: "What are you going to do today",
   },
 ];
