@@ -84,6 +84,9 @@ const Conversations: FC<{
         <div className="flex justify-between items-center w-full">
           <ControlButtons {...stopWatchProps} handleReset={handleReset} />
           <div className="w-full flex flex-col items-end">
+            <p>
+              Showing {data.length} of {source.length}
+            </p>
             <Timer time={stopWatchProps.time} />
           </div>
         </div>

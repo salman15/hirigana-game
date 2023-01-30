@@ -11,7 +11,7 @@ const Video: FC<{ hide: boolean }> = ({ hide }) => {
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-        className={hide ? "opacity-0 h-0" : ""}
+        className={`max-w-full ${hide ? "opacity-0 h-0" : ""}`}
       ></iframe>
     </div>
   );

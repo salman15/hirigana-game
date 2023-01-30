@@ -18,6 +18,9 @@ const App: FC = () => {
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/words">
           ことば / Words 👽
         </Link>
+        <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/practice">
+          れんしゅ / Practice 🎯
+        </Link>
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ const ControlButtons: FC<{
 
   return (
     <div className="Control-Buttons w-full">
-      <div className=" my-2 w-full flex justify-start items-center space-x-4">
+      <div className="my-2 w-full flex flex-wrap justify-start items-center space-x-4 space-y-4 xl:space-y-0">
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/">
           🏠 もどる / Back
         </Link>

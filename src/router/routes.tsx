@@ -7,6 +7,7 @@ import {
 } from "../games/conversation/data/conversations";
 import { words } from "../games/conversation/data/words";
 import Memory from "../games/memory/Memory";
+import Practice from "../games/practice/Practice";
 import { shuffle } from "../games/utils/shuffle";
 
 const randomDeck = (dataCopy: conversationType[]) => {
@@ -37,5 +38,9 @@ export const router = createBrowserRouter([
   {
     path: "/words",
     element: <Conversations random={randomWords} source={words} />,
+  },
+  {
+    path: "/practice",
+    element: <Practice />,
   },
 ]);

@@ -33,7 +33,7 @@ const Card: FC<{
       }`}
     >
       <div
-        className="flex items-center justify-center flex-col center h-64 w-full "
+        className="flex items-center justify-center flex-col center h-64 max-h-full w-full "
         onClick={() => setSelectedCards(hiraganaIndex)}
       >
         {selected ? (
