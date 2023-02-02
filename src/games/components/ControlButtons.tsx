@@ -7,9 +7,11 @@ const ControlButtons: FC<{
   handlePauseResume?: () => void;
   toggleHide?: () => void;
   showAll?: () => void;
+  handleShowRomanji: () => void;
   hide?: boolean;
   isPaused?: boolean;
   isActive?: boolean;
+  showRomanji?: boolean;
 }> = ({
   handleStart,
   handlePauseResume,
@@ -19,6 +21,8 @@ const ControlButtons: FC<{
   isPaused,
   isActive,
   hide,
+  showRomanji,
+  handleShowRomanji,
 }) => {
   const StartButton = handleStart ? (
     <button className="btn btn-one btn-start" onClick={handleStart}>
@@ -57,6 +61,11 @@ const ControlButtons: FC<{
         {showAll && (
           <button className="w-36" onClick={showAll}>
             Practice
+          </button>
+        )}
+        {handleShowRomanji && (
+          <button className="w-36" onClick={handleShowRomanji}>
+            {showRomanji ? "Hide" : "Show"} Romanji
           </button>
         )}
       </div>

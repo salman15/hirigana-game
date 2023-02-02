@@ -11,7 +11,8 @@ const Conversation: FC<{
   item: typeof conversations[0];
   startGame: () => void;
   isStarted: boolean;
-}> = ({ item, isStarted, startGame }) => {
+  showRomanji: boolean;
+}> = ({ item, isStarted, startGame, showRomanji }) => {
   const [showTranslation, setShowTranslation] = useState(false);
   const [translation, setTranslation] = useState("");
   const [emoji, setEmoji] = useState<string>();
@@ -23,12 +24,14 @@ const Conversation: FC<{
     const emoji = isTranslated ? "✅" : "❌";
     setEmoji(emoji);
     setShowTranslation(!showTranslation);
+    !isStarted && startGame();
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value.toLowerCase() === item.translation.toLowerCase()) {
       setEmoji("✅");
+      setShowTranslation(true);
     }
 
     setTranslation(value);
@@ -36,10 +39,12 @@ const Conversation: FC<{
   };
 
   return (
-    <>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center  p-4 bg-gray-800 bg-opacity-20 ">
       <div>
         <p className="text-4xl">{item.hiragana}</p>
-        <p className="text-3xl mt-2 pt-2 border-t-2">{item.romanji}</p>
+        {showRomanji && (
+          <p className="text-3xl mt-2 pt-2 border-t-2">{item.romanji}</p>
+        )}
       </div>
       <div className="flex flex-col space-y-4">
         <div className="flex space-x-4 ">
@@ -54,12 +59,16 @@ const Conversation: FC<{
           </button>
         </div>
         {showTranslation && (
-          <p className={isTranslated ? ` text-green-700 ` : `text-red-700`}>
+          <p
+            className={`font-bold text-lg ${
+              isTranslated ? ` text-green-500 ` : `text-red-500`
+            }`}
+          >
             {item.translation}
           </p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -70,6 +79,11 @@ const Conversations: FC<{
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
   const [data, setData] = useState(random);
+  const [showRomanji, setShowRomanji] = useState(false);
+
+  const toggleShowRomanji = () => {
+    setShowRomanji(!showRomanji);
+  };
 
   const handleReset = () => {
     const dataCopy = source.concat();
@@ -82,7 +96,12 @@ const Conversations: FC<{
     <div className="m-4">
       <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
         <div className="flex justify-between items-center w-full">
-          <ControlButtons {...stopWatchProps} handleReset={handleReset} />
+          <ControlButtons
+            {...stopWatchProps}
+            showRomanji={showRomanji}
+            handleShowRomanji={toggleShowRomanji}
+            handleReset={handleReset}
+          />
           <div className="w-full flex flex-col items-end">
             <p>
               Showing {data.length} of {source.length}
@@ -91,9 +110,10 @@ const Conversations: FC<{
           </div>
         </div>
       </div>
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded gap-y-6 items-center">
+      <div className="relative z-10 grid w-full gap-2 bg-gray-700 shadow-xl p-4 rounded gap-y-6 ">
         {data.map((item, key) => (
           <Conversation
+            showRomanji={showRomanji}
             key={`${item.hiragana}-${key}`}
             item={item}
             isStarted={stopWatchProps.isActive}

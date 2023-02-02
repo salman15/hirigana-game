@@ -4,10 +4,62 @@ export type conversationType = {
   translation: string;
 };
 export const conversations: conversationType[] = [
+  // 31-01-2023
+  {
+    hiragana: "なんじ ",
+    romanji: "nanji",
+    translation: "what time",
+  },
+  // 30-01-2023
+  {
+    hiragana: "いらっしゃいませ。",
+    romanji: "iratsushaimase",
+    translation: "May I help you",
+  },
+  {
+    hiragana: "［～を］ みせて ください。",
+    romanji: "[~o] misete kudasai",
+    translation: "Please show me",
+  },
+  {
+    hiragana: "じゃ ",
+    romanji: "ja",
+    translation: "in that case",
+  },
+  {
+    hiragana: "［～を］ください。",
+    romanji: "[~o] kudasai",
+    translation: "Give me, please",
+  },
+  {
+    hiragana: "はい、そうです。",
+    romanji: "hai, sou desuka",
+    translation: "yes, it is",
+  },
+  {
+    hiragana: "ここにひっこしてきたばかり",
+    romanji: "Koko ni hitsukoshite kita bakari",
+    translation: "I've just moved in",
+  },
+  {
+    hiragana: "わたしはわたしのものです",
+    romanji: "Watashi wa watashi no monodesu",
+    translation: "i'ts mine",
+  },
+  {
+    hiragana: "これ わ",
+    romanji: "Kore wa ~.",
+    translation: "this is",
+  },
   {
     hiragana: "はめじましょう。",
     romanji: "Hajimemashou.",
-    translation: "Let's begin",
+    translation: "let's begin",
+  },
+  {
+    hiragana: "どなた？",
+    romanji: "Donata?",
+    translation: "Who is it",
   },
   {
     hiragana: "おわりましょう。",
@@ -27,12 +79,12 @@ export const conversations: conversationType[] = [
   {
     hiragana: "いいえ、わかりません。",
     romanji: "iie, wakarimasen.",
-    translation: "No, I don't",
+    translation: "No, I don't understand",
   },
   {
     hiragana: "はい、わかります。 ",
     romanji: "hai, wakarimasu.",
-    translation: "Yes, I do",
+    translation: "Yes, I understand",
   },
   //
   {
@@ -142,8 +194,8 @@ export const conversations: conversationType[] = [
     translation: "I see",
   },
   {
-    hiragana: "ちがいます",
-    romanji: "Chigaimasu",
+    hiragana: "いいえ、ちがいます",
+    romanji: "iie, Chigaimasu",
     translation: "No, it isn't",
   },
   {

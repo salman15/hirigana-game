@@ -2,33 +2,23 @@ import { FC, useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import ControlButtons from "../components/ControlButtons";
 import Input from "../components/Input";
-import Card from "../memory/components/Card";
-import Video from "../memory/components/Video";
-import { hiragana } from "../memory/data/hiragana";
+import { words } from "../conversation/data/words";
 
-const Practice: FC = () => {
+const PracticeWords: FC = () => {
   useDocumentTitle("🎯 Hiragana game ");
 
-  const [hide, setHide] = useState(true);
   const [translate, setTranslate] = useState("");
   const [search, setSearch] = useState("");
 
-  const toggleHide = () => {
-    setHide(!hide);
-  };
-
   const findTranslation = () => {
-    const words = translate.split(" ");
-    const translation = words.map(
-      (word) =>
-        hiragana.find(
-          (text) =>
-            text.hiragana === word.toLowerCase() ||
-            text.romanji === word.toLowerCase()
-        )?.hiragana
-    );
+    const translateWords: string[] = [];
 
-    return translation.join(" ");
+    words.forEach((word) => {
+      if (translate.includes(word.translation))
+        translateWords.push(word.hiragana);
+    });
+
+    return translateWords.join(" ");
   };
 
   const copyToClipboard = () => {
@@ -37,20 +27,20 @@ const Practice: FC = () => {
 
   const foundTranslation = findTranslation();
 
-  const filteredCharacters = hiragana.filter(
+  const filteredCharacters = words.filter(
     (filter) =>
       filter.romanji.includes(search.toLowerCase()) ||
-      filter.hiragana.includes(search.toLowerCase())
+      filter.hiragana.includes(search.toLowerCase()) ||
+      filter.translation.includes(search.toLowerCase())
   );
 
   return (
     <div className="App w-full p-4">
-      <Video hide={hide} />
       <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
-          <ControlButtons hide={hide} toggleHide={toggleHide} />
+          <ControlButtons />
           <div className="w-full md:w-1/2 flex flex-col items-end">
-            <p className="w-full text-right">Total: {hiragana.length}</p>
+            <p className="w-full text-right">Total: {words.length}</p>
           </div>
         </div>
 
@@ -82,21 +72,16 @@ const Practice: FC = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {filteredCharacters.map((item, index) => (
-          <Card
-            found={true}
-            item={item}
-            index={index}
-            key={`${item.hiragana}-${index}`}
-            selectedCards={{}}
-            setSelectedCards={() => undefined}
-          />
+          <div>
+            <p>{item.hiragana}</p>
+            <p>{item.translation}</p>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-export default Practice;
+export default PracticeWords;
