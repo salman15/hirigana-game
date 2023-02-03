@@ -158,7 +158,7 @@ const Memory: FC = () => {
               Found: ({found.length}/{characters.length / 2})
             </p>
             <p className="text-right">Clicks: ({clicks})</p>
-            <Timer time={stopWatchProps.time} />
+            <Timer {...stopWatchProps} defaultTime={stopWatchProps.time} />
           </div>
         </div>
         {showAll && (

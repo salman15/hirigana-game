@@ -15,21 +15,6 @@ const useStopWatch = (): useStopWatchReturnProps => {
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
 
-  useEffect(() => {
-    let interval: null | number | NodeJS.Timer = null;
-
-    if (isActive && isPaused === false) {
-      interval = setInterval(() => {
-        setTime((time) => time + 10);
-      }, 10);
-    } else {
-      if (interval) clearInterval(interval);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isActive, isPaused]);
-
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
@@ -41,7 +26,7 @@ const useStopWatch = (): useStopWatchReturnProps => {
 
   const handleReset = () => {
     setIsActive(false);
-    setTime(0);
+    setTime(time + 1);
   };
 
   return {

@@ -61,21 +61,25 @@ export const router = createBrowserRouter([
   },
   {
     path: "/days",
-    element: <Conversations random={randomDays} source={days} />,
+    element: <Conversations random={randomDays} source={days} noRandom />,
   },
   {
     path: "/day-of-the-month",
     element: (
-      <Conversations random={randomDayOfTheMonth} source={dayOfTheMonth} />
+      <Conversations
+        random={randomDayOfTheMonth}
+        source={dayOfTheMonth}
+        noRandom
+      />
     ),
   },
   {
     path: "/months",
-    element: <Conversations random={randomMonths} source={months} />,
+    element: <Conversations random={randomMonths} source={months} noRandom />,
   },
   {
     path: "/counting",
-    element: <Conversations random={randomNumbers} source={numbers} />,
+    element: <Conversations random={randomNumbers} source={numbers} noRandom />,
   },
   {
     path: "/practice-memory",

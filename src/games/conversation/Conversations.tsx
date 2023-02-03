@@ -17,8 +17,13 @@ const Conversation: FC<{
   const [translation, setTranslation] = useState("");
   const [emoji, setEmoji] = useState<string>();
 
-  const isTranslated =
-    item.translation.toLowerCase() === translation.toLowerCase();
+  const findTranslation = (translation: string) => {
+    return !!item.translation.find(
+      (item) => item.toLowerCase() === translation.toLowerCase()
+    );
+  };
+
+  const isTranslated = findTranslation(translation);
 
   const verify = () => {
     const emoji = isTranslated ? "✅" : "❌";
@@ -29,7 +34,7 @@ const Conversation: FC<{
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (value.toLowerCase() === item.translation.toLowerCase()) {
+    if (findTranslation(value.toLowerCase())) {
       setEmoji("✅");
       setShowTranslation(true);
     }
@@ -75,10 +80,11 @@ const Conversation: FC<{
 const Conversations: FC<{
   random: conversationType[];
   source: conversationType[];
-}> = ({ random, source }) => {
+  noRandom?: boolean;
+}> = ({ random, source, noRandom }) => {
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
-  const [data, setData] = useState(random);
+  const [data, setData] = useState(noRandom ? source : random);
   const [showRomanji, setShowRomanji] = useState(false);
 
   const toggleShowRomanji = () => {
@@ -86,12 +92,16 @@ const Conversations: FC<{
   };
 
   const handleReset = () => {
+    if (noRandom) {
+      setShowRomanji(false);
+      stopWatchProps.handleReset();
+      return;
+    }
     const dataCopy = source.concat();
     const random = shuffle(dataCopy).slice(0, 12);
     setData(random);
     stopWatchProps.handleReset();
   };
-
   return (
     <div className="m-4">
       <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
@@ -106,7 +116,7 @@ const Conversations: FC<{
             <p>
               Showing {data.length} of {source.length}
             </p>
-            <Timer time={stopWatchProps.time} />
+            <Timer {...stopWatchProps} defaultTime={stopWatchProps.time} />
           </div>
         </div>
       </div>

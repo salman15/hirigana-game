@@ -7,7 +7,7 @@ const ControlButtons: FC<{
   handlePauseResume?: () => void;
   toggleHide?: () => void;
   showAll?: () => void;
-  handleShowRomanji: () => void;
+  handleShowRomanji?: () => void;
   hide?: boolean;
   isPaused?: boolean;
   isActive?: boolean;
