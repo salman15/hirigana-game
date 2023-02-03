@@ -14,7 +14,7 @@ const PracticeWords: FC = () => {
     const translateWords: string[] = [];
 
     words.forEach((word) => {
-      if (translate.includes(word.translation))
+      if (!!word.translation.find((word) => translate.includes(word)))
         translateWords.push(word.hiragana);
     });
 
