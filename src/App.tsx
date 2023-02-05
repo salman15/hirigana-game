@@ -10,7 +10,13 @@ const App: FC = () => {
       <h1>Select your game. / げむおせんたくしま。</h1>
       <div className="grid md:grid-cols-4 gap-4">
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/memory">
-          めもり / Memory 🧠
+          めもりひらがな / Memory hiragana🧠
+        </Link>
+        <Link
+          className="bg-gray-700 shadow-xl p-4 rounded"
+          to="/memory-katakana"
+        >
+          めもりひ カタカナ/ Memory Katakana🧠
         </Link>
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/words">
           ことば / Words 👽
@@ -24,7 +30,7 @@ const App: FC = () => {
         >
           つきのひ / Day of the month 📆
         </Link>
-        <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/days">
+        <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/months">
           つき / Months 🈷️
         </Link>
         <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/counting">

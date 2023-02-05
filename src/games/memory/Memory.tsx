@@ -3,30 +3,25 @@ import Card from "./components/Card";
 import ControlButtons from "../components/ControlButtons";
 import Timer from "../components/Timer";
 import Video from "./components/Video";
-import { hiragana, hiraganaType } from "./data/hiragana";
 import useStopWatch from "../hooks/useStopWatch";
 import { createConfetti } from "../confetti/confetti";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import Input from "../components/Input";
-import { shuffle } from "../utils/shuffle";
-
-const dataCopy = hiragana.concat();
-
-const randomDeck = () => {
-  const shuffleHiragana = shuffle(dataCopy).slice(0, 12);
-  return shuffle([...shuffleHiragana, ...shuffleHiragana]);
-};
-
-const data = randomDeck();
+import { hiragana, charactersType } from "./data/hiragana";
+import { randomDeck, shuffle } from "../utils/shuffle";
 
 const confetti = createConfetti();
 
-const Memory: FC = () => {
-  useDocumentTitle("🧠 Hiragana game ");
+const Memory: FC<{
+  random: charactersType[];
+  source: charactersType[];
+  type: "kana" | "hiragana";
+}> = ({ random, source, type }) => {
+  useDocumentTitle(`🧠 ${type} game `);
 
   const [select1, setSelect1] = useState<string>();
   const [select2, setSelect2] = useState<string>();
-  const [characters, setCharacters] = useState(data);
+  const [characters, setCharacters] = useState(random);
   const [found, setFound] = useState<string[]>([]);
   const [hide, setHide] = useState(true);
   const [clicks, setClicks] = useState(0);
@@ -39,12 +34,12 @@ const Memory: FC = () => {
 
   const stopWatchProps = useStopWatch();
 
-  const handleFound = (hiragana: string, measureAgainst: string) => {
+  const handleFound = (character: string, measureAgainst: string) => {
     const nakedOne = measureAgainst && measureAgainst.split("-")[0];
-    const nakedHiragana = hiragana.split("-")[0];
+    const nakedCharacter = character.split("-")[0];
 
-    if (nakedOne === nakedHiragana) {
-      setFound([...found, nakedHiragana]);
+    if (nakedOne === nakedCharacter) {
+      setFound([...found, nakedCharacter]);
       return true;
     } else return false;
   };
@@ -52,36 +47,36 @@ const Memory: FC = () => {
   const startStopWatch = () =>
     !stopWatchProps.isActive && stopWatchProps.handleStart();
 
-  const toggleCard = (hiragana: string) => {
+  const toggleCard = (character: string) => {
     // If selected deselect
-    if (select1 === hiragana) {
+    if (select1 === character) {
       setSelect1(undefined);
     }
     // If selected deselect
-    else if (select2 === hiragana) {
+    else if (select2 === character) {
       setSelect2(undefined);
     }
     // If select 1 is not selected select 1
     else if (!select1) {
-      setSelect1(hiragana);
-      if (select2) handleFound(hiragana, select2);
+      setSelect1(character);
+      if (select2) handleFound(character, select2);
     }
     // If select 2 is not selected select 2 and see if it's found
     else if (select1 && !select2) {
-      setSelect2(hiragana);
-      handleFound(hiragana, select1);
+      setSelect2(character);
+      handleFound(character, select1);
     }
     // default back to selecting the first one and deselecting the second one
     else {
-      setSelect1(hiragana);
+      setSelect1(character);
       setSelect2(undefined);
     }
   };
 
-  const setSelectedCards = (hiragana: string) => {
+  const setSelectedCards = (character: string) => {
     setClicks(clicks + 1);
     startStopWatch();
-    toggleCard(hiragana);
+    toggleCard(character);
   };
 
   const reset = () => {
@@ -90,8 +85,8 @@ const Memory: FC = () => {
     setSelect1(undefined);
     setSelect2(undefined);
     setClicks(0);
-    const data = randomDeck();
-    setCharacters(data);
+    const data = randomDeck(source);
+    setCharacters(shuffle([...data, ...data]));
     confetti.clear();
   };
 
@@ -100,9 +95,9 @@ const Memory: FC = () => {
       reset();
       setShowAll(false);
     } else {
-      const foundAll = hiragana.map((item) => item.hiragana);
+      const foundAll = source.map((item) => item[type] || "");
       setFound(foundAll);
-      setCharacters(hiragana);
+      setCharacters(source);
       setShowAll(true);
       stopWatchProps.handlePauseResume();
     }
@@ -112,9 +107,9 @@ const Memory: FC = () => {
     const words = translate.split(" ");
     const translation = words.map(
       (word) =>
-        hiragana.find(
+        source.find(
           (text) =>
-            text.hiragana === word.toLowerCase() ||
+            text[type] === word.toLowerCase() ||
             text.romanji === word.toLowerCase()
         )?.hiragana
     );
@@ -139,7 +134,7 @@ const Memory: FC = () => {
   const filteredCharacters = characters.filter(
     (filter) =>
       filter.romanji.includes(search.toLowerCase()) ||
-      filter.hiragana.includes(search.toLowerCase())
+      filter[type]?.includes(search.toLowerCase())
   );
   return (
     <div className="App w-full p-4">
@@ -197,12 +192,13 @@ const Memory: FC = () => {
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {filteredCharacters.map((item, index) => (
           <Card
-            found={!!found.find((found) => found === item.hiragana)}
+            found={!!found.find((found) => found === item[type])}
             item={item}
             index={index}
-            key={`${item.hiragana}-${index}`}
+            key={`${item[type]}-${index}`}
             selectedCards={selectCards}
             setSelectedCards={setSelectedCards}
+            type={type}
           />
         ))}
       </div>

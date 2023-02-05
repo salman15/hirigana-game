@@ -92,11 +92,6 @@ const Conversations: FC<{
   };
 
   const handleReset = () => {
-    if (noRandom) {
-      setShowRomanji(false);
-      stopWatchProps.handleReset();
-      return;
-    }
     const dataCopy = source.concat();
     const random = shuffle(dataCopy).slice(0, 12);
     setData(random);

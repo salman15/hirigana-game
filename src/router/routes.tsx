@@ -12,15 +12,12 @@ import {
   numbers,
   words,
 } from "../games/conversation/data/words";
+import { hiragana } from "../games/memory/data/hiragana";
+import { katakana } from "../games/memory/data/katakana";
 import Memory from "../games/memory/Memory";
 import PracticeMemory from "../games/practice/PracticeMemory";
 import PracticeWords from "../games/practice/PracticeWords";
-import { shuffle } from "../games/utils/shuffle";
-import Words from "../games/words/Words";
-
-const randomDeck = (dataCopy: conversationType[]) => {
-  return shuffle(dataCopy).slice(0, 12);
-};
+import { randomDeck, shuffle } from "../games/utils/shuffle";
 
 const dataCopyConversations = conversations.concat();
 const randomConversations = randomDeck(dataCopyConversations);
@@ -40,6 +37,12 @@ const randomDayOfTheMonth = randomDeck(copyDayOfTheMonth);
 const copyMonths = months.concat();
 const randomMonths = randomDeck(copyMonths);
 
+const copyHiragana = hiragana.concat();
+const randomHiragana = randomDeck(copyHiragana);
+
+const copyKatakana = katakana.concat();
+const randomKatakana = randomDeck(copyKatakana);
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,7 +50,23 @@ export const router = createBrowserRouter([
   },
   {
     path: "/memory",
-    element: <Memory />,
+    element: (
+      <Memory
+        random={shuffle([...randomHiragana, ...randomHiragana])}
+        source={hiragana}
+        type="hiragana"
+      />
+    ),
+  },
+  {
+    path: "/memory-katakana",
+    element: (
+      <Memory
+        random={shuffle([...randomKatakana, ...randomKatakana])}
+        source={katakana}
+        type="kana"
+      />
+    ),
   },
   {
     path: "/conversation",

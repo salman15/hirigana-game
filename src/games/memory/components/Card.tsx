@@ -1,15 +1,16 @@
 import { FC, useState } from "react";
 import back from "../assets/card.png";
-import { hiraganaType } from "../data/hiragana";
+import { charactersType } from "../data/hiragana";
 
 const Card: FC<{
   found: boolean;
-  item: hiraganaType;
+  item: charactersType;
   selectedCards: { one?: string; two?: string };
   setSelectedCards: (hiragana: string) => void;
   index: number;
-}> = ({ item, selectedCards, found, index, setSelectedCards }) => {
-  const hiraganaIndex = `${item.hiragana}-${index}`;
+  type: "hiragana" | "kana";
+}> = ({ item, type, selectedCards, found, index, setSelectedCards }) => {
+  const hiraganaIndex = `${item[type]}-${index}`;
 
   const [showRomanji, setShowRomanji] = useState(false);
 
@@ -38,7 +39,7 @@ const Card: FC<{
       >
         {selected ? (
           <>
-            <p className="w-full text-center text-6xl">{item.hiragana}</p>
+            <p className="w-full text-center text-6xl">{item[type]}</p>
             {(showRomanji || found) && (
               <p className="w-full text-center text-6xl mt-2 pt-2 border-t-2">
                 {item.romanji}

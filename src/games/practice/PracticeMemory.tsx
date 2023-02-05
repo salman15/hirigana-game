@@ -40,7 +40,7 @@ const PracticeMemory: FC = () => {
   const filteredCharacters = hiragana.filter(
     (filter) =>
       filter.romanji.includes(search.toLowerCase()) ||
-      filter.hiragana.includes(search.toLowerCase())
+      filter.hiragana?.includes(search.toLowerCase())
   );
 
   return (
@@ -86,6 +86,7 @@ const PracticeMemory: FC = () => {
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {filteredCharacters.map((item, index) => (
           <Card
+            type="hiragana"
             found={true}
             item={item}
             index={index}

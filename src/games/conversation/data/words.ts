@@ -1,5 +1,90 @@
 import { conversationType } from "./conversations";
 
+/**
+{
+  hiragana: "",
+  romanji: "",
+  translation: [""],
+},
+ */
+
+export const lesson5: conversationType[] = [
+  {
+    hiragana: "いきます",
+    romanji: "ikimasu",
+    translation: ["go"],
+  },
+  {
+    hiragana: "きます",
+    romanji: "kimasu",
+    translation: ["come"],
+  },
+  {
+    hiragana: "かえります",
+    romanji: "kaerimasu",
+    translation: ["go home", "return"],
+  },
+  {
+    hiragana: "がっこう",
+    romanji: "ga-kou",
+    translation: ["school"],
+  },
+];
+
+//
+export const google: conversationType[] = [
+  {
+    hiragana: "いらないです",
+    romanji: "Iranai desu",
+    translation: ["I don't need"],
+  },
+  {
+    hiragana: "たまご",
+    romanji: "tamago",
+    translation: ["egg"],
+  },
+  {
+    hiragana: "ねん",
+    romanji: "nen",
+    translation: ["year"],
+  },
+  {
+    hiragana: "わからない",
+    romanji: "wakaranai",
+    translation: ["I don't understand"],
+  },
+  {
+    hiragana: "じょうく",
+    romanji: "Jōku",
+    translation: ["joke"],
+  },
+  {
+    hiragana: "それはじょうだんだ",
+    romanji: "Sore wa jou danda",
+    translation: ["it's a joke"],
+  },
+  {
+    hiragana: "ちやしゅ",
+    romanji: "Chiyashu",
+    translation: ["grilled meat"],
+  },
+  {
+    hiragana: "とても",
+    romanji: "totemo",
+    translation: ["very"],
+  },
+  {
+    hiragana: "かえだま",
+    romanji: "kaedame",
+    translation: ["Refill"],
+  },
+  {
+    hiragana: "しらない",
+    romanji: "shiranai",
+    translation: ["I don't know"],
+  },
+];
+
 export const numbers: conversationType[] = [
   {
     hiragana: "れい",
@@ -413,6 +498,7 @@ export const words: conversationType[] = [
   ...months,
   ...numbers,
   ...days,
+  ...google,
   // 31 - 01 - 2023
   {
     hiragana: "おきます",
@@ -492,12 +578,12 @@ export const words: conversationType[] = [
   {
     hiragana: "ごぜん",
     romanji: "gozen",
-    translation: ["morning"],
+    translation: ["am", "morning"],
   },
   {
     hiragana: "ごご",
     romanji: "gogo",
-    translation: ["afternoon"],
+    translation: ["pm", "afternoon"],
   },
   {
     hiragana: "あさ",
@@ -531,7 +617,7 @@ export const words: conversationType[] = [
   },
   {
     hiragana: "あした",
-    romanji: "ashito",
+    romanji: "ashita",
     translation: ["tomorrow"],
   },
   {
@@ -847,9 +933,14 @@ export const words: conversationType[] = [
     translation: ["present"],
   },
   {
+    hiragana: "そうです。",
+    romanji: "Soudesu",
+    translation: ["I see"],
+  },
+  {
     hiragana: "そうですか。",
     romanji: "Soudesuka",
-    translation: ["I see"],
+    translation: ["do you see"],
   },
   {
     hiragana: "から",

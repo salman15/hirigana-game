@@ -1,4 +1,11 @@
-export const hiragana = [
+export type charactersType = {
+  type?: string;
+  kana?: string;
+  hiragana?: string;
+  romanji: string;
+};
+
+export const hiragana: charactersType[] = [
   // Basic vowls
   { romanji: "a", hiragana: "あ" },
   { romanji: "i", hiragana: "い" },
@@ -141,5 +148,3 @@ export const hiragana = [
   { romanji: "pyu", hiragana: "ぴゅ" },
   { romanji: "pyo", hiragana: "ぴょ" },
 ];
-
-export type hiraganaType = typeof hiragana[0];

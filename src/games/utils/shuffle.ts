@@ -17,3 +17,7 @@ export const shuffle = <T>(array: Array<T>) => {
 
   return array;
 };
+
+export const randomDeck = <T>(dataCopy: T[]) => {
+  return shuffle(dataCopy).slice(0, 12);
+};
