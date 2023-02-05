@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { chown } from "fs";
+import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 const ControlButtons: FC<{
@@ -12,6 +13,7 @@ const ControlButtons: FC<{
   isPaused?: boolean;
   isActive?: boolean;
   showRomanji?: boolean;
+  children?: ReactNode;
 }> = ({
   handleStart,
   handlePauseResume,
@@ -23,6 +25,7 @@ const ControlButtons: FC<{
   hide,
   showRomanji,
   handleShowRomanji,
+  children,
 }) => {
   const StartButton = handleStart ? (
     <button className="btn btn-one btn-start" onClick={handleStart}>
@@ -34,7 +37,10 @@ const ControlButtons: FC<{
   const ActiveButtons = (
     <>
       {handlePauseResume && (
-        <button className="btn btn-one" onClick={handlePauseResume}>
+        <button
+          className={`btn btn-one ${isPaused ? "" : "bg-blue-600"}`}
+          onClick={handlePauseResume}
+        >
           {isPaused ? "Resume" : "Pause"}
         </button>
       )}
@@ -53,21 +59,31 @@ const ControlButtons: FC<{
           🏠 もどる / Back
         </Link>
         {toggleHide && (
-          <button className="w-36" onClick={toggleHide}>
+          <button
+            className={`w-36 ${!!hide ? "" : "bg-blue-600"}`}
+            onClick={toggleHide}
+          >
             {!hide ? "Hide" : "Show"} video
           </button>
         )}
         {isActive ? ActiveButtons : StartButton}
         {showAll && (
-          <button className="w-36" onClick={showAll}>
+          <button
+            className={`w-36 ${isActive ? "bg-blue-600" : ""}`}
+            onClick={showAll}
+          >
             Practice
           </button>
         )}
         {handleShowRomanji && (
-          <button className="w-36" onClick={handleShowRomanji}>
+          <button
+            className={`w-36 ${showRomanji ? "bg-blue-600" : ""}`}
+            onClick={handleShowRomanji}
+          >
             {showRomanji ? "Hide" : "Show"} Romanji
           </button>
         )}
+        {children}
       </div>
     </div>
   );

@@ -414,3 +414,7 @@ export const conversations: conversationType[] = [
     translation: ["do you spend a lot of time with your family"],
   },
 ];
+
+export const conversationsObj = {
+  conversations,
+};
