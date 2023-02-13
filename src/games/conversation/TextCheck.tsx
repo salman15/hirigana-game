@@ -46,11 +46,11 @@ const TextCheck: FC<{
           <p className="text-3xl mt-2 pt-2 border-t-2">{item.romanji}</p>
         )}
       </div>
-      <div className="flex flex-col space-y-4">
-        <div className="flex space-x-4 ">
+      <div className="flex flex-col lg:items-end space-y-4">
+        <div className="flex space-x-4 lg:w-full ">
           <Input
             onChange={handleInput}
-            className="w-conversationInput max-w-full"
+            className="w-conversationInput lg:w-full max-w-full"
             name="translation"
             placeholder="Translate this sentence."
           />
@@ -60,11 +60,11 @@ const TextCheck: FC<{
         </div>
         {showTranslation && (
           <p
-            className={`font-bold text-lg ${
+            className={`font-bold text-lg lg:w-full lg:text-left ${
               isTranslated ? ` text-green-500 ` : `text-red-500`
             }`}
           >
-            {item.translation}
+            {item.translation.join(" or ")}
           </p>
         )}
       </div>

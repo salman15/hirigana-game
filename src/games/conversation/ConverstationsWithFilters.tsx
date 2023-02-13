@@ -33,7 +33,7 @@ const ConversationsWithFilters: FC<{
 
   return (
     <div className="m-4">
-      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+      <div className=" flex-col flex justify-between items-center lg:sticky top-0 py-2 bg-main z-20">
         <div className="flex justify-between items-center w-full">
           <ControlButtons
             {...stopWatchProps}
@@ -48,11 +48,11 @@ const ConversationsWithFilters: FC<{
             <Timer {...stopWatchProps} defaultTime={stopWatchProps.time} />
           </div>
         </div>
-        <ul className="flex flex-wrap space-x-4 w-full">
+        <ul className="grid grid-cols-2 gap-4 lg:flex lg:flex-wrap lg:items-start lg:justify-start lg:space-x-4  w-full">
           {types.map((type, i) => (
-            <li key={i}>
+            <li className="w-full md:w-auto" key={i}>
               <button
-                className={selected === type ? "bg-blue-600" : ""}
+                className={`md:w-40 ${selected === type ? "bg-blue-600" : ""}`}
                 onClick={() => setSelected(type)}
               >
                 {`${type[0].toUpperCase()}${type.slice(1, type.length + 1)}`}
@@ -61,9 +61,9 @@ const ConversationsWithFilters: FC<{
           ))}
         </ul>
       </div>
-      <ul className="relative z-10 grid w-full gap-2 bg-gray-700 shadow-xl p-4 rounded gap-y-6 list-decimal">
+      <ul className="relative z-10 grid w-full gap-2 bg-gray-700 shadow-xl p-4 rounded gap-y-6 lg:list-decimal">
         {selectedSource.map((item, key) => (
-          <li className="pl-2 ml-12">
+          <li className="lg:pl-2 lg:ml-12">
             <TextCheck
               showRomanji={showRomanji}
               key={`${item.hiragana}-${key}`}

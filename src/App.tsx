@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { createOutput } from "./games/conversation/data/words/utils";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 
 const App: FC = () => {
   useDocumentTitle("Hiragana game | Select your game");
-
+  //createOutput(41);
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen space-y-4 p-4">
       <h1>Select your game. / げむおせんたくしま。</h1>

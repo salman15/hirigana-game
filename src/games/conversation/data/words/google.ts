@@ -5,12 +5,64 @@ import { conversationType } from "../conversations";
   romanji: "",
   translation: [""],
 },
+
  */
 export const google: conversationType[] = [
-  { hiragana: "かえれ", romanji: "kaere", translation: ["go home"] },
-  { hiragana: "やつ", romanji: "yatsu", translation: ["guy"] },
-  { hiragana: "わたしたち", romanji: "watashitachi", translation: ["we"] },
-  { hiragana: "また", romanji: "mata", translation: ["again"] },
+  {
+    hiragana: "いただけますか",
+    romanji: "Itadakimasuka",
+    translation: ["can I have?"],
+  },
+  {
+    hiragana: "もらえますか",
+    romanji: "Moraemasu ka?",
+    translation: ["can I have it"],
+  },
+  {
+    hiragana: "もらえますか",
+    romanji: "Moraemasu",
+    translation: ["you can get it"],
+  },
+  {
+    hiragana: "やっぱり",
+    romanji: "ya pari",
+    translation: ["on second thought", "now that I think about it"],
+  },
+  {
+    hiragana: "ハグ",
+    romanji: "hagu",
+    translation: ["hug"],
+  },
+  {
+    hiragana: "おちつけ",
+    romanji: "Ochitsuke",
+    translation: ["calm down"],
+  },
+  {
+    hiragana: "あいましょう",
+    romanji: "aimashou",
+    translation: ["let's meet"],
+  },
+  {
+    hiragana: "かえれ",
+    romanji: "kaere",
+    translation: ["go home"],
+  },
+  {
+    hiragana: "やつ",
+    romanji: "yatsu",
+    translation: ["guy"],
+  },
+  {
+    hiragana: "わたしたち",
+    romanji: "watashitachi",
+    translation: ["we"],
+  },
+  {
+    hiragana: "また",
+    romanji: "mata",
+    translation: ["again"],
+  },
   {
     hiragana: "みた",
     romanji: "mita",

@@ -76,7 +76,7 @@ const PracticeWords: FC = () => {
         {filteredCharacters.map((item, index) => (
           <div>
             <p>{item.hiragana}</p>
-            <p>{item.translation}</p>
+            <p>{item.translation.join(" or ")}</p>
           </div>
         ))}
       </div>

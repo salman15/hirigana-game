@@ -30,7 +30,7 @@ const Conversations: FC<{
   };
   return (
     <div className="m-4">
-      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+      <div className=" flex-col flex justify-between items-center lg:sticky top-0 py-2 bg-main z-20">
         <div className="flex justify-between items-center w-full">
           <ControlButtons
             {...stopWatchProps}

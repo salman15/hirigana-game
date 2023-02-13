@@ -17,7 +17,10 @@ import { randomDeck, shuffle } from "../games/utils/shuffle";
 const dataCopyConversations = conversations.concat();
 const randomConversations = randomDeck(dataCopyConversations);
 
-const randomWords = { all: randomDeck(wordsObj.all.concat()), ...wordsObj };
+const randomWords = {
+  ...wordsObj,
+  all: randomDeck(wordsObj.all.concat().slice(0, 12)),
+};
 
 const copyDays = days.concat();
 const randomDays = randomDeck(copyDays);

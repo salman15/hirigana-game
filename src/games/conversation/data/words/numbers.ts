@@ -8,8 +8,8 @@ import { conversationType } from "../conversations";
  */
 export const numbers: conversationType[] = [
   {
-    hiragana: "れい",
-    romanji: "zero",
+    hiragana: "れい, ぜろ",
+    romanji: "rei, zero",
     translation: ["0"],
   },
   {
@@ -28,8 +28,8 @@ export const numbers: conversationType[] = [
     translation: ["3"],
   },
   {
-    hiragana: "し",
-    romanji: "yon",
+    hiragana: "し, よん",
+    romanji: "shi, yon",
     translation: ["4"],
   },
   {
@@ -43,8 +43,8 @@ export const numbers: conversationType[] = [
     translation: ["6"],
   },
   {
-    hiragana: "しち",
-    romanji: "nana",
+    hiragana: "しち、なな",
+    romanji: "shichi, nana",
     translation: ["7"],
   },
   {
@@ -53,8 +53,8 @@ export const numbers: conversationType[] = [
     translation: ["8"],
   },
   {
-    hiragana: "きゅう",
-    romanji: "kyuu",
+    hiragana: "きゅう、く",
+    romanji: "kyuu, ku",
     translation: ["9"],
   },
   {

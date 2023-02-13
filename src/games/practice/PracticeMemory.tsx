@@ -5,9 +5,12 @@ import Input from "../components/Input";
 import Card from "../memory/components/Card";
 import Video from "../memory/components/Video";
 import { hiragana } from "../memory/data/hiragana";
+import { katakana } from "../memory/data/katakana";
+
+const data = [...hiragana, ...katakana];
 
 const PracticeMemory: FC = () => {
-  useDocumentTitle("🎯 Hiragana memory ");
+  useDocumentTitle("🎯 Character memory ");
 
   const [hide, setHide] = useState(true);
   const [translate, setTranslate] = useState("");
@@ -19,14 +22,15 @@ const PracticeMemory: FC = () => {
 
   const findTranslation = () => {
     const words = translate.split(" ");
-    const translation = words.map(
-      (word) =>
-        hiragana.find(
-          (text) =>
-            text.hiragana === word.toLowerCase() ||
-            text.romanji === word.toLowerCase()
-        )?.hiragana
-    );
+    const translation = words.map((word) => {
+      const foundCharacter = data.find(
+        (text) =>
+          text?.hiragana === word.toLowerCase() ||
+          text?.kana === word.toLowerCase() ||
+          text?.romanji === word.toLowerCase()
+      );
+      return foundCharacter?.hiragana || foundCharacter?.kana;
+    });
 
     return translation.join(" ");
   };
@@ -37,10 +41,11 @@ const PracticeMemory: FC = () => {
 
   const foundTranslation = findTranslation();
 
-  const filteredCharacters = hiragana.filter(
+  const filteredCharacters = data.filter(
     (filter) =>
       filter.romanji.includes(search.toLowerCase()) ||
-      filter.hiragana?.includes(search.toLowerCase())
+      filter.hiragana?.includes(search.toLowerCase()) ||
+      filter.kana?.includes(search.toLowerCase())
   );
 
   return (
@@ -50,7 +55,7 @@ const PracticeMemory: FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <ControlButtons hide={hide} toggleHide={toggleHide} />
           <div className="w-full md:w-1/2 flex flex-col items-end">
-            <p className="w-full text-right">Total: {hiragana.length}</p>
+            <p className="w-full text-right">Total: {data.length}</p>
           </div>
         </div>
 
@@ -63,11 +68,11 @@ const PracticeMemory: FC = () => {
           value={translate}
           onChange={(e) => setTranslate(e.target.value)}
         />
-        <p className="w-full text-left">Output in Hiragana:</p>
+        <p className="w-full text-left">Output in Hiragana or kana:</p>
         <div className="w-full flex space-x-4">
           <Input
             className="w-full p-4 rounded mb-4 text-gray-800"
-            placeholder="Your text in Hiragana or Romanji"
+            placeholder="Your text in Hiragana, Kana or Romanji"
             value={foundTranslation}
           />
           <button className="h-full flex" onClick={copyToClipboard}>
@@ -86,11 +91,11 @@ const PracticeMemory: FC = () => {
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {filteredCharacters.map((item, index) => (
           <Card
-            type="hiragana"
+            type={item.hiragana ? "hiragana" : "kana"}
             found={true}
             item={item}
             index={index}
-            key={`${item.hiragana}-${index}`}
+            key={`${item.hiragana || item.hiragana}-${index}`}
             selectedCards={{}}
             setSelectedCards={() => undefined}
           />
