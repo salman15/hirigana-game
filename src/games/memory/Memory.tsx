@@ -111,7 +111,7 @@ const Memory: FC<{
           (text) =>
             text[type] === word.toLowerCase() ||
             text.romanji === word.toLowerCase()
-        )?.hiragana
+        )?.[type]
     );
 
     return translation.join(" ");

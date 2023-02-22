@@ -5,7 +5,7 @@ import useDocumentTitle from "./hooks/useDocumentTitle";
 
 const App: FC = () => {
   useDocumentTitle("Hiragana game | Select your game");
-  //createOutput(41);
+  console.log("output: ", createOutput(52));
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen space-y-4 p-4">
       <h1>Select your game. / げむおせんたくしま。</h1>

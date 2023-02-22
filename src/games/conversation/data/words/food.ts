@@ -6,6 +6,50 @@ import { conversationType } from "../conversations";
   translation: [""],
 },
  */
+export const taste: conversationType[] = [
+  {
+    hiragana: "あまい",
+    romanji: "amai",
+    translation: ["sweet"],
+  },
+  {
+    hiragana: "からい",
+    romanji: "karai",
+    translation: ["spicy"],
+  },
+  {
+    hiragana: "にがい",
+    romanji: "nigai",
+    translation: ["bitter"],
+  },
+  {
+    hiragana: "しおからい",
+    romanji: "shiokarai",
+    translation: ["salty"],
+  },
+  {
+    hiragana: "すっぱい",
+    romanji: "Su pai",
+    translation: ["sour"],
+  },
+  {
+    hiragana: "こい",
+    romanji: "koi",
+    translation: ["strong"],
+  },
+  {
+    hiragana: "うすい",
+    romanji: "usui",
+    translation: ["weak"],
+  },
+];
+/**
+{
+  hiragana: "",
+  romanji: "",
+  translation: [""],
+},
+ */
 export const fish: conversationType[] = [
   {
     hiragana: "あじ",
@@ -214,3 +258,11 @@ export const vegetables: conversationType[] = [
     translation: ["carrot"],
   },
 ];
+
+export const foods = {
+  taste,
+  fish,
+  meat,
+  fruit,
+  vegetables,
+};

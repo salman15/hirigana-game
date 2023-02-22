@@ -9,5 +9,5 @@ export const createOutput = (length: number) => {
       translation: [""],
     });
   }
-  console.log(words);
+  return words;
 };

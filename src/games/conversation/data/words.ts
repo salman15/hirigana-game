@@ -1,8 +1,20 @@
 import { conversationType } from "./conversations";
 import { days } from "./words/days";
-import { meat, fruit, vegetables, fish } from "./words/food";
+import { meat, fruit, vegetables, fish, foods } from "./words/food";
 import { google } from "./words/google";
-import { lesson3, lesson4, lesson5, lesson6, lessons } from "./words/lessons";
+import {
+  lesson10,
+  lesson11,
+  lesson12,
+  lesson3,
+  lesson4,
+  lesson5,
+  lesson6,
+  lesson7,
+  lesson8,
+  lesson9,
+  lessons,
+} from "./words/lessons";
 import { dayOfTheMonth, months } from "./words/months";
 import { numbers } from "./words/numbers";
 
@@ -220,6 +232,24 @@ export const wordsObj: Record<string, conversationType[]> = {
     ...lesson4,
     ...lesson5,
     ...lesson6,
+    ...lesson7,
+    ...lesson8,
+    ...lesson9,
+    ...lesson10,
+    ...lesson11,
+    ...lesson12,
+    // ...lesson13,
+    // ...lesson14,
+    // ...lesson16,
+    // ...lesson17,
+    // ...lesson18,
+    // ...lesson19,
+    // ...lesson20,
+    // ...lesson21,
+    // ...lesson22,
+    // ...lesson23,
+    // ...lesson24,
+    // ...lesson25
     ...google,
     ...other,
     ...meat,
@@ -234,10 +264,7 @@ export const wordsObj: Record<string, conversationType[]> = {
   ...lessons,
   google,
   other,
-  meat,
-  fruit,
-  vegetables,
-  fish,
+  ...foods,
 };
 
 export const words: conversationType[] = [
