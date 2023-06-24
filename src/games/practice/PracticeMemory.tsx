@@ -51,7 +51,7 @@ const PracticeMemory: FC = () => {
   return (
     <div className="App w-full p-4">
       <Video hide={hide} />
-      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+      <div className="flex-col justify-between items-center sticky top-0 py-2 bg-main z-20">
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <ControlButtons hide={hide} toggleHide={toggleHide} />
           <div className="w-full md:w-1/2 flex flex-col items-end">

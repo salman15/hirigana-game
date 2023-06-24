@@ -29,7 +29,7 @@ const Card: FC<{
   return (
     <div
       aria-label={item.hiragana}
-      className={`h-64 w-full p-4 bg-blue-600 rounded shadow-lg flex items-center justify ${
+      className={`h-28 lg:h-64 w-full p-2 lg:p-4 bg-blue-600 rounded shadow-lg flex items-center justify ${
         found ? "opacity-50 center pointer-events-none " : ""
       }`}
     >
@@ -39,15 +39,21 @@ const Card: FC<{
       >
         {selected ? (
           <>
-            <p className="w-full text-center text-6xl">{item[type]}</p>
+            <p className="w-full text-center lg:text-6xl">{item[type]}</p>
             {(showRomanji || found) && (
-              <p className="w-full text-center text-6xl mt-2 pt-2 border-t-2">
+              <p className="w-full text-center lg:text-6xl mt-2 pt-2 border-t-2">
                 {item.romanji}
               </p>
             )}
             {!found && (
-              <button onClick={toggleRomanji} className="mt-4">
-                {showRomanji ? "Hide" : `Show`} Romanji
+              <button
+                onClick={toggleRomanji}
+                className="lg:mt-4  p-1 lg:p w-full"
+              >
+                <p className="hidden lg:block">
+                  {showRomanji ? "Hide" : `Show`} Romanji
+                </p>
+                <p className="lg:hidden p-0">{showRomanji ? "Hide" : `Show`}</p>
               </button>
             )}
           </>

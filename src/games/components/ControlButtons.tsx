@@ -1,7 +1,7 @@
-import { chown } from "fs";
 import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
-
+import { BiMovie, BiMoviePlay, BiPause, BiPlay, BiReset } from "react-icons/bi";
+import { GiArcheryTarget, GiRomanToga } from "react-icons/gi";
 const ControlButtons: FC<{
   handleStart?: () => void;
   handleReset?: () => void;
@@ -28,8 +28,11 @@ const ControlButtons: FC<{
   children,
 }) => {
   const StartButton = handleStart ? (
-    <button className="btn btn-one btn-start" onClick={handleStart}>
-      Start
+    <button
+      className="flex justify-center align-center btn btn-one btn-start"
+      onClick={handleStart}
+    >
+      <BiPlay />
     </button>
   ) : (
     <></>
@@ -38,15 +41,20 @@ const ControlButtons: FC<{
     <>
       {handlePauseResume && (
         <button
-          className={`btn btn-one ${isPaused ? "" : "bg-blue-600"}`}
+          className={`flex justify-center align-center btn btn-one ${
+            isPaused ? "" : "bg-blue-600"
+          }`}
           onClick={handlePauseResume}
         >
-          {isPaused ? "Resume" : "Pause"}
+          {isPaused ? <BiPlay /> : <BiPause />}
         </button>
       )}
       {handleReset && (
-        <button className="btn btn-two" onClick={handleReset}>
-          Reset
+        <button
+          className="flex justify-center align-center btn btn-two"
+          onClick={handleReset}
+        >
+          <BiReset />
         </button>
       )}
     </>
@@ -54,33 +62,42 @@ const ControlButtons: FC<{
 
   return (
     <div className="Control-Buttons w-full">
-      <div className="my-2 w-full flex flex-wrap justify-start items-center space-x-4 space-y-4 xl:space-y-0">
-        <Link className="bg-gray-700 shadow-xl p-4 rounded" to="/">
-          🏠 もどる / Back
+      <div className="my-2 w-full grid grid-cols-5 gap-4 justify-start items-center ">
+        <Link
+          className="bg-gray-700 shadow-xl p-4 rounded flex justify-center align-center"
+          to="/"
+        >
+          🏠 <p className="hidden">もどる</p>
         </Link>
         {toggleHide && (
           <button
-            className={`w-36 ${!!hide ? "" : "bg-blue-600"}`}
+            className={`flex justify-center align-center ${
+              !!hide ? "" : "bg-blue-600"
+            }`}
             onClick={toggleHide}
           >
-            {!hide ? "Hide" : "Show"} video
+            {!hide ? <BiMoviePlay /> : <BiMovie />}
           </button>
         )}
         {isActive ? ActiveButtons : StartButton}
         {showAll && (
           <button
-            className={`w-36 ${isActive ? "bg-blue-600" : ""}`}
+            className={`flex justify-center align-center ${
+              isActive ? "bg-blue-600" : ""
+            }`}
             onClick={showAll}
           >
-            Practice
+            <GiArcheryTarget />
           </button>
         )}
         {handleShowRomanji && (
           <button
-            className={`w-36 ${showRomanji ? "bg-blue-600" : ""}`}
+            className={`flex justify-center align-center ${
+              showRomanji ? "bg-blue-600" : ""
+            }`}
             onClick={handleShowRomanji}
           >
-            {showRomanji ? "Hide" : "Show"} Romanji
+            <GiRomanToga />
           </button>
         )}
         {children}

@@ -10,9 +10,503 @@ export const lesson19: conversationType[] = [];
 export const lesson18: conversationType[] = [];
 export const lesson17: conversationType[] = [];
 export const lesson16: conversationType[] = [];
-export const lesson15: conversationType[] = [];
-export const lesson14: conversationType[] = [];
-export const lesson13: conversationType[] = [];
+export const lesson15: conversationType[] = [
+  {
+    hiragana: "おきます",
+    romanji: "okimasu",
+    translation: ["get"],
+  },
+  {
+    hiragana: "つくります",
+    romanji: "tsukurimasu",
+    translation: ["make", "produce"],
+  },
+  {
+    hiragana: "うります",
+    romanji: "urimasu",
+    translation: ["sell"],
+  },
+  {
+    hiragana: "しります",
+    romanji: "shirimasu",
+    translation: ["get to know"],
+  },
+  {
+    hiragana: "すみます",
+    romanji: "sumimasu",
+    translation: ["be going live"],
+  },
+  {
+    hiragana: "けんきゅうします",
+    romanji: "kenkyuushimasu",
+    translation: ["do research"],
+  },
+  {
+    hiragana: "しりょう",
+    romanji: "shiryou",
+    translation: ["materials", "data"],
+  },
+  {
+    hiragana: "カタログ",
+    romanji: "katarogu",
+    translation: ["catalogue"],
+  },
+  {
+    hiragana: "じこくひょう",
+    romanji: "jikokuhyou",
+    translation: ["timetable"],
+  },
+  {
+    hiragana: "ふく",
+    romanji: "fuku",
+    translation: ["clothes"],
+  },
+  {
+    hiragana: "せいひん",
+    romanji: "seihin",
+    translation: ["products"],
+  },
+  {
+    hiragana: "ソフト",
+    romanji: "sofuto",
+    translation: ["software"],
+  },
+  {
+    hiragana: "でんしじしょ",
+    romanji: "denshijisho",
+    translation: ["electronic dictionary"],
+  },
+  {
+    hiragana: "けいざい",
+    romanji: "keizai",
+    translation: ["economy"],
+  },
+  {
+    hiragana: "しやくしょ",
+    romanji: "shiyakisho",
+    translation: ["municipal office", "city hall"],
+  },
+  {
+    hiragana: "こうこう",
+    romanji: "koukou",
+    translation: ["senior high school"],
+  },
+  {
+    hiragana: "はいしゃ",
+    romanji: "haisha",
+    translation: ["dentist", "dentist's"],
+  },
+  {
+    hiragana: "どくしん",
+    romanji: "dokushin",
+    translation: ["single", "unmarried"],
+  },
+  {
+    hiragana: "すみません",
+    romanji: "sumimasen",
+    translation: ["I'm sorry"],
+  },
+  {
+    hiragana: "みなさん",
+    romanji: "minasan",
+    translation: ["Ladies and Gentlemen", "everybody"],
+  },
+  {
+    hiragana: "おもいだします",
+    romanji: "omoidashimasu",
+    translation: ["remember", "recollect"],
+  },
+  {
+    hiragana: "いらっしゃいます",
+    romanji: "ira shyaimasu",
+    translation: ["be", "be(honorific equivalent of います）"],
+  },
+];
+export const lesson14: conversationType[] = [
+  {
+    hiragana: "つけます",
+    romanji: "tsukemasu",
+    translation: ["turn on"],
+  },
+  {
+    hiragana: "けします",
+    romanji: "keshimasu",
+    translation: ["turn off"],
+  },
+  {
+    hiragana: "あけます",
+    romanji: "akemasu",
+    translation: ["open"],
+  },
+  {
+    hiragana: "しめます",
+    romanji: "shimemasu",
+    translation: ["close", "shut"],
+  },
+  {
+    hiragana: "いそぎます",
+    romanji: "isogimasu",
+    translation: ["hurry"],
+  },
+  {
+    hiragana: "まちます",
+    romanji: "machimasu",
+    translation: ["wait"],
+  },
+  {
+    hiragana: "もちます",
+    romanji: "mochimasu",
+    translation: ["hold"],
+  },
+  {
+    hiragana: "とります",
+    romanji: "torimasu",
+    translation: ["take", "pass"],
+  },
+  {
+    hiragana: "てつだいます",
+    romanji: "tetsudaimasu",
+    translation: ["help", "help with a task"],
+  },
+  {
+    hiragana: "よびます",
+    romanji: "yobimasu",
+    translation: ["call"],
+  },
+  {
+    hiragana: "はなします",
+    romanji: "hanashimasu",
+    translation: ["speak", "talk"],
+  },
+  {
+    hiragana: "つかいます",
+    romanji: "tsukaimasu",
+    translation: ["use"],
+  },
+  {
+    hiragana: "とめます",
+    romanji: "tomemasu",
+    translation: ["stop", "park"],
+  },
+  {
+    hiragana: "みせます",
+    romanji: "misemasu",
+    translation: ["show"],
+  },
+  {
+    hiragana: "おしえます",
+    romanji: "oshiemasu",
+    translation: ["tell"],
+  },
+  {
+    hiragana: "すわります",
+    romanji: "suwarimasu",
+    translation: ["sit down"],
+  },
+  {
+    hiragana: "たちます",
+    romanji: "tachimasu",
+    translation: ["stand up"],
+  },
+  {
+    hiragana: "はいります",
+    romanji: "hairimasu",
+    translation: ["enter", "for example a cafe"],
+  },
+  {
+    hiragana: "でます",
+    romanji: "demasu",
+    translation: ["go out", "for example a cafe"],
+  },
+  {
+    hiragana: "ふります",
+    romanji: "ffurimasu",
+    translation: ["rain"],
+  },
+  {
+    hiragana: "コピーします",
+    romanji: "kopi-shimasu",
+    translation: ["copy"],
+  },
+  {
+    hiragana: "でんき",
+    romanji: "denki",
+    translation: ["electricity", "light"],
+  },
+  {
+    hiragana: "エアコン",
+    romanji: "eakon",
+    translation: ["air conditioner"],
+  },
+  {
+    hiragana: "パスポート",
+    romanji: "pasupo-to",
+    translation: ["passport"],
+  },
+  {
+    hiragana: "なまえ",
+    romanji: "namae",
+    translation: ["name"],
+  },
+  {
+    hiragana: "じゅうしょ",
+    romanji: "juusho",
+    translation: ["address"],
+  },
+  {
+    hiragana: "ちず",
+    romanji: "chizu",
+    translation: ["map"],
+  },
+  {
+    hiragana: "しお",
+    romanji: "shio",
+    translation: ["salt"],
+  },
+  {
+    hiragana: "さとう",
+    romanji: "satou",
+    translation: ["sugar"],
+  },
+  {
+    hiragana: "もんだい",
+    romanji: "mondai",
+    translation: ["question", "problem", "trouble"],
+  },
+  {
+    hiragana: "こたえ",
+    romanji: "kotae",
+    translation: ["answer"],
+  },
+  {
+    hiragana: "よみかた",
+    romanji: "yomikata",
+    translation: ["how to read", "way of reading"],
+  },
+  {
+    hiragana: "～かた",
+    romanji: "~kata",
+    translation: ["how to ~", "way of ~ing"],
+  },
+  {
+    hiragana: "まっすぐ ",
+    romanji: "ma suga",
+    translation: ["straight"],
+  },
+  {
+    hiragana: "ゆっくり ",
+    romanji: "yu kuri",
+    translation: ["slowly", "leisurely"],
+  },
+  {
+    hiragana: "すぐ",
+    romanji: "sugu",
+    translation: ["immediately"],
+  },
+  {
+    hiragana: "また",
+    romanji: "mata",
+    translation: ["again"],
+  },
+  {
+    hiragana: "あとで",
+    romanji: "atode",
+    translation: ["later"],
+  },
+  {
+    hiragana: "もう すこし",
+    romanji: "mou sukoshi",
+    translation: ["little more"],
+  },
+  {
+    hiragana: "もう ~",
+    romanji: "mou ~",
+    translation: ["~ more", "another ~"],
+  },
+  {
+    hiragana: "さあ",
+    romanji: "saa",
+    translation: [
+      "right",
+      "example (used when encouraging some course of action)",
+    ],
+  },
+  {
+    hiragana: "あれ",
+    romanji: "are",
+    translation: ["Oh! Eh?"],
+  },
+  {
+    hiragana: "しん ごうをみぎへまがってください。",
+    romanji: "shin dou o migihe maga tekudasai",
+    translation: ["Turn right at the traffic lights"],
+  },
+  {
+    hiragana: "これで お ねが いします。",
+    romanji: "korede o nega ishimasu",
+    translation: ["I'd like to pay with this"],
+  },
+];
+export const lesson13: conversationType[] = [
+  {
+    hiragana: "あそびます",
+    romanji: "asobimasu",
+    translation: ["enjoy oneself", "play"],
+  },
+  {
+    hiragana: "およぎます ",
+    romanji: "oyogimasu",
+    translation: ["swim"],
+  },
+  {
+    hiragana: "むかえます",
+    romanji: "mukaemasu",
+    translation: ["go to meet", "welcome"],
+  },
+  {
+    hiragana: "つかれます ",
+    romanji: "tsukaremasu",
+    translation: [
+      "get tired",
+      " (when expressing the condition of being tired, つかれました is used)",
+    ],
+  },
+  {
+    hiragana: "けっこんします",
+    romanji: "ke konshimasu",
+    translation: ["marry", "get married"],
+  },
+  {
+    hiragana: "かいものします ",
+    romanji: "kaimonoshimasu",
+    translation: ["do shopping"],
+  },
+  {
+    hiragana: "しょくじします ",
+    romanji: "shokujishimasu",
+    translation: ["have a meal", "dine"],
+  },
+  {
+    hiragana: "さんぽします",
+    romanji: "sanposhimasu",
+    translation: ["take a walk", "take a walk [in a park]"],
+  },
+  {
+    hiragana: "たいへん［な］",
+    romanji: "taihen",
+    translation: ["hard", "tough", "severe", "awful"],
+  },
+  {
+    hiragana: "ほしい",
+    romanji: "hoshii",
+    translation: ["want", "want (something)"],
+  },
+  {
+    hiragana: "ひろい",
+    romanji: "hiroi",
+    translation: ["wide", "spacious"],
+  },
+  {
+    hiragana: "せまい",
+    romanji: "semai",
+    translation: ["narrow", "small (room, etc.)"],
+  },
+  {
+    hiragana: "プール",
+    romanji: "po-ru",
+    translation: ["swimming pool"],
+  },
+  {
+    hiragana: "かわ",
+    romanji: "kawa",
+    translation: ["river"],
+  },
+  {
+    hiragana: "びじゅつ",
+    romanji: "bijuutsu",
+    translation: ["fine arts"],
+  },
+  {
+    hiragana: "つり",
+    romanji: "tsuri",
+    translation: ["fishing"],
+  },
+  {
+    hiragana: "スキー",
+    romanji: "suki-",
+    translation: ["skiing"],
+  },
+  {
+    hiragana: "しゅうまつ",
+    romanji: "shuumatsu",
+    translation: ["weekend"],
+  },
+  {
+    hiragana: "［お］しょうがつ",
+    romanji: "o shougatsu",
+    translation: ["New Year's Day"],
+  },
+  {
+    hiragana: "～ごろ",
+    romanji: "goro",
+    translation: ["about", "about ~ (time)"],
+  },
+  {
+    hiragana: "なにか",
+    romanji: "nanika",
+    translation: ["something"],
+  },
+  {
+    hiragana: "どこか ",
+    romanji: "dokoka",
+    translation: ["somewhere", "some place"],
+  },
+  {
+    hiragana: "のどが かわきます ",
+    romanji: "nodoga kawakimasu",
+    translation: ["get thirsty"],
+  },
+  {
+    hiragana: "おなかが すきます",
+    romanji: "onakaga sukimasu",
+    translation: ["get hungry"],
+  },
+  {
+    hiragana: "Let's do that",
+    romanji: "sou shimashou",
+    translation: ["そう しましょう"],
+  },
+  {
+    hiragana: "ごちゅうもんは",
+    romanji: "gochumonha",
+    translation: ["May I take your order"],
+  },
+  {
+    hiragana: "ていしょく",
+    romanji: "teishoku",
+    translation: ["set meal", "table d́hôte"],
+  },
+  {
+    hiragana: "ぎゅうどん",
+    romanji: "guudon",
+    translation: ["bowl of rice topped with beef"],
+  },
+  {
+    hiragana: "[しょう しょう ］おまち ください",
+    romanji: "[shou shou] omachi kudasai",
+    translation: ["Please wait"],
+  },
+  {
+    hiragana: "～で ございます。",
+    romanji: "~de gozaimasu",
+    translation: ["polite equivalent of です"],
+  },
+  {
+    hiragana: "べつべつに",
+    romanji: "betsubetsuni",
+    translation: ["separately"],
+  },
+];
 export const lesson12: conversationType[] = [
   {
     hiragana: "かんたん［な］",
@@ -294,27 +788,27 @@ export const lesson11: conversationType[] = [
   {
     hiragana: "ひとつ",
     romanji: "hitotsu",
-    translation: ["one"],
+    translation: ["one", "1"],
   },
   {
     hiragana: "ふたつ",
     romanji: "futatsu",
-    translation: ["two"],
+    translation: ["two", "2"],
   },
   {
     hiragana: "みっつ",
     romanji: "mi tsu",
-    translation: ["three"],
+    translation: ["three", "3"],
   },
   {
     hiragana: "よっつ",
     romanji: "yo tsu",
-    translation: ["four"],
+    translation: ["four", "4"],
   },
   {
     hiragana: "いつつ",
     romanji: "itsutsu",
-    translation: ["five"],
+    translation: ["five", "5"],
   },
   {
     hiragana: "むっつ",
@@ -343,7 +837,7 @@ export const lesson11: conversationType[] = [
   },
   {
     hiragana: "いくつ",
-    romanji: "ikutus",
+    romanji: "ikutsu",
     translation: ["how many"],
   },
   {
@@ -378,7 +872,7 @@ export const lesson11: conversationType[] = [
   },
   {
     hiragana: "りんご",
-    romanji: "rindo",
+    romanji: "ringo",
     translation: ["apple"],
   },
   {
@@ -1435,7 +1929,7 @@ export const lesson7: conversationType[] = [
   },
   {
     hiragana: "ケータイ ",
-    romanji: "",
+    romanji: "ke-tai",
     translation: ["mobile phone", "cell phone"],
   },
   {
@@ -1486,7 +1980,7 @@ export const lesson7: conversationType[] = [
   },
   {
     hiragana: "プレゼント",
-    romanji: "",
+    romanji: "purzento",
     translation: ["present", "gift"],
   },
   {
@@ -2025,7 +2519,7 @@ export const lesson5: conversationType[] = [
   },
   {
     hiragana: "せんしゅう ",
-    romanji: "sensuu",
+    romanji: "senshuu",
     translation: ["last week"],
   },
   {
@@ -2696,9 +3190,427 @@ export const lesson3: conversationType[] = [
   },
 ];
 
+export const lesson2: conversationType[] = [
+  {
+    hiragana: "これ",
+    romanji: "kore",
+    translation: ["this"],
+    explanation: "thing here",
+  },
+  {
+    hiragana: "それ",
+    romanji: "sore",
+    translation: ["that"],
+    explanation: "Thing near the listener",
+  },
+  {
+    hiragana: "あれ",
+    romanji: "are",
+    translation: ["that"],
+    explanation: "thing over there",
+  },
+  {
+    hiragana: "この〜",
+    romanji: "kono ~",
+    translation: ["this", "this ~ here"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "その",
+    romanji: "sono",
+    translation: ["that ~", " that ~ near the listener"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "あの ~",
+    romanji: "ano ~",
+    translation: ["that ~", " that ~ over there"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ほん",
+    romanji: "bon",
+    translation: ["book"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "じしょ",
+    romanji: "jisho",
+    translation: ["dictionary"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ざっし",
+    romanji: "za shi",
+    translation: ["magazine"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "しんぶん",
+    romanji: "shinbun",
+    translation: ["newspaper"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ノート",
+    romanji: "no to",
+    translation: ["notebook"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "てちょう ",
+    romanji: "techou",
+    translation: ["personal organizer"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "めいし",
+    romanji: "meishi",
+    translation: ["business card"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "カード",
+    romanji: "ka-do",
+    translation: ["payment card", "credit card"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "えんぴつ",
+    romanji: "enbitsu",
+    translation: ["pencil"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ボールペン",
+    romanji: "bo-ruben",
+    translation: ["ballpoint pen"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "シャープペンシル ",
+    romanji: "sha-pubenshiru",
+    translation: ["mechanical pencil", "propelling pencil"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "かぎ",
+    romanji: "kagi",
+    translation: ["key"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "とけい",
+    romanji: "tokei",
+    translation: ["watch", "clock"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "かさ",
+    romanji: "kasa",
+    translation: ["umbrella"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "かばん",
+    romanji: "kaban",
+    translation: ["briefcase", "suitcase"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "CD",
+    romanji: "cd",
+    translation: ["cd", "compact disc"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "テレビ ",
+    romanji: "terebi",
+    translation: ["telivision"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ラジオ",
+    romanji: "rajio",
+    translation: ["radio"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "カメラ",
+    romanji: "kamera",
+    translation: ["camera"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "コンピューター",
+    romanji: "konpyu-ta-",
+    translation: ["computer"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "くるま",
+    romanji: "kuruma",
+    translation: ["car", "vehicle"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "つくえ",
+    romanji: "tsukue",
+    translation: ["desk"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "いす",
+    romanji: "isu",
+    translation: ["chair"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "チョコレート",
+    romanji: "chokoreto",
+    translation: ["chocolade"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "コーヒー",
+    romanji: "ko-hi",
+    translation: ["coffee"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "［お］みやげ",
+    romanji: "[o] miyage",
+    translation: ["souvenire", "present"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "えいご",
+    romanji: "eigo",
+    translation: ["english language"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "にほんご",
+    romanji: "nihongo",
+    translation: ["japanese language"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "～ご",
+    romanji: "~ go",
+    translation: ["~ language"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "なん",
+    romanji: "nan",
+    translation: ["what"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "そう",
+    romanji: "sou",
+    translation: ["so"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "あのう",
+    romanji: "anou",
+    translation: ["eh..."],
+    explanation: "used to show hesitation",
+  },
+  {
+    hiragana: "えっ",
+    romanji: "e ",
+    translation: ["Oh?", "What!"],
+    explanation: "used when hearing something unexpected",
+  },
+  {
+    hiragana: "どうぞ",
+    romanji: "douzo",
+    translation: ["here you are"],
+    explanation: "used when offering someone something",
+  },
+  {
+    hiragana: "［どうも］ありがとう［ございます］。",
+    romanji: "[doumo] arigatou [gogiimasu",
+    translation: ["Thank you [very much].", "Thank you"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "そうですか。",
+    romanji: "soudesuka",
+    translation: ["i see"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "ちがいます。",
+    romanji: "chigaimasu",
+    translation: ["No, it isn't", "You are wrong"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "あ",
+    romanji: "o",
+    translation: ["oh"],
+    explanation: "used when becoming aware of something",
+  },
+  {
+    hiragana: "これからおせわになります。",
+    romanji: "korekara o sewaninarimasu",
+    translation: ["Thank you in advance for your kindness"],
+    explanation: undefined,
+  },
+  {
+    hiragana: "こちらこそ［どうぞ］よろしく［おねがいします］。",
+    romanji: "kochirakoso [douzo[ yoroshiku [onegaishimasu]",
+    translation: ["Pleased to meet you, too"],
+    explanation: "［どうぞ］よろしく［おねがいします］。",
+  },
+];
+
+export const lesson1: conversationType[] = [
+  {
+    hiragana: "私",
+    romanji: "watashi",
+    translation: ["I"],
+  },
+  {
+    hiragana: "あなた",
+    romanji: "anata",
+    translation: ["you"],
+  },
+  {
+    hiragana: "あの ひと（あの かた） あの 人（あの 方)",
+    romanji: "ano hito (ano kata) ano hito (ano )",
+    translation: ["that person", "he", "she"],
+  },
+  {
+    hiragana: "~さん",
+    romanji: "~san",
+    translation: ["mr", "mrs"],
+  },
+  {
+    hiragana: "~じん",
+    romanji: "~jin",
+    translation: ["national", "example: american"],
+  },
+  {
+    hiragana: "せんせい",
+    romanji: "sensei",
+    translation: ["teacher", "instructor"],
+  },
+  {
+    hiragana: "きょうし",
+    romanji: "kyoushi",
+    translation: ["teacher", "instructor"],
+  },
+  {
+    hiragana: "がくせい",
+    romanji: "gakusei",
+    translation: ["student"],
+  },
+  {
+    hiragana: "かいしゃいん",
+    romanji: "kaishain",
+    translation: ["company employee"],
+  },
+  {
+    hiragana: "しゃいん",
+    romanji: "shain",
+    translation: ["employee of ~ company"],
+  },
+  {
+    hiragana: "ぎんこういん",
+    romanji: "ginkouin",
+    translation: ["bank employee"],
+  },
+  {
+    hiragana: "いしゃ",
+    romanji: "isha",
+    translation: ["doctor"],
+  },
+  {
+    hiragana: "けんきゅうしゃ",
+    romanji: "kenkyuusha",
+    translation: ["researcher", "scholar"],
+  },
+  {
+    hiragana: "だいがく",
+    romanji: "daigaku",
+    translation: ["university"],
+  },
+  {
+    hiragana: "びょういん",
+    romanji: "byouin",
+    translation: ["hospital"],
+  },
+  {
+    hiragana: "だれ",
+    romanji: "dare",
+    translation: ["who"],
+  },
+  {
+    hiragana: "~ さい",
+    romanji: "~ sai",
+    translation: ["~ years old"],
+  },
+  {
+    hiragana: "なんさい（おいくつ）",
+    romanji: "nansai (oikutsu)",
+    translation: ["how old"],
+  },
+  {
+    hiragana: "はい",
+    romanji: "hai",
+    translation: ["yes"],
+  },
+  {
+    hiragana: "いいえ",
+    romanji: "iie",
+    translation: ["no"],
+  },
+  {
+    hiragana: "はじめまして",
+    romanji: "hajimemashite",
+    translation: ["How do you do"],
+    explanation: "explanation: only used with first introducion.",
+  },
+  {
+    hiragana: "からきました",
+    romanji: "~ karakimashita",
+    translation: ["i'm from ~"],
+    explanation: "I'm from this country",
+  },
+  {
+    hiragana: "［どうぞ］よろしく［おねがいします］。",
+    romanji: "[douzo] yoroshiku [onegaishimasu]",
+    translation: ["Pleased to meet you"],
+    explanation:
+      "（lit. Please be nice to me. Usually used at the end of a self-introduction.）",
+  },
+  {
+    hiragana: "しつれいですが",
+    romanji: "shitusreidesuga",
+    translation: ["Excuse me, but"],
+    explanation:
+      "used when asking someone for personal information such as their name or address",
+  },
+  {
+    hiragana: "おなまえは",
+    romanji: "onamaeha",
+    translation: ["What is your name?"],
+  },
+  {
+    hiragana: "こちらは〜さんです",
+    romanji: "kochiraha ~ san desu",
+    translation: ["this is mr", "this is mrs"],
+  },
+];
+
 export const lessons = {
-  // lesson1,
-  // lesson2,
+  lesson1,
+  lesson2,
   lesson3,
   lesson4,
   lesson5,
@@ -2709,8 +3621,8 @@ export const lessons = {
   lesson10,
   lesson11,
   lesson12,
-  // lesson13,
-  // lesson14,
+  lesson13,
+  lesson14,
   // lesson16,
   // lesson17,
   // lesson18,

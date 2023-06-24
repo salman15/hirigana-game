@@ -1,11 +1,13 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { BiHide, BiShow } from "react-icons/bi";
+import { toast } from "react-toastify";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import ControlButtons from "../components/ControlButtons";
 import Timer from "../components/Timer";
 import useStopWatch from "../hooks/useStopWatch";
 import { shuffle } from "../utils/shuffle";
-import { conversationType } from "./data/conversations";
 import TextCheck from "./TextCheck";
+import { conversationType } from "./data/conversations";
 
 const ConversationsWithFilters: FC<{
   random: Record<string, conversationType[]>;
@@ -18,62 +20,112 @@ const ConversationsWithFilters: FC<{
   const [data, setData] = useState(noRandom ? source : random);
   const [showRomanji, setShowRomanji] = useState(false);
   const [selected, setSelected] = useState<string>(types[0]);
-  const selectedSource = data[selected];
+  const [verifiedWords, setVerifiedWords] = useState<conversationType[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
 
-  const toggleShowRomanji = () => {
-    setShowRomanji(!showRomanji);
-  };
+  const selectedSource = data[selected];
 
   const handleReset = () => {
     const dataCopy = source[selected]?.concat();
     const random = shuffle(dataCopy).slice(0, 12);
     setData({ ...source, [selected]: random });
     stopWatchProps.handleReset();
+    setVerifiedWords([]);
+  };
+
+  useEffect(() => {
+    if (verifiedWords.length === selectedSource.length)
+      toast.success(
+        <div>
+          <p>Good job! You got all the answers correct.</p>
+          <button className="bg-blue-600" onClick={handleReset}>
+            Try again!
+          </button>
+        </div>
+      );
+  }, [verifiedWords]);
+
+  const toggleShowRomanji = () => {
+    setShowRomanji(!showRomanji);
+  };
+
+  const handleVerified = (conversation: conversationType) => {
+    if (!verifiedWords.find((item) => item.hiragana === conversation.hiragana))
+      setVerifiedWords([...verifiedWords, conversation]);
+  };
+
+  const handleSelected = (select: string) => {
+    setSelected(select);
+    toast.info(`Changed to: ${select}`);
+
+    if (verifiedWords.length > 0) setVerifiedWords([]);
+    if (showFilters) setShowFilters(false);
   };
 
   return (
-    <div className="m-4">
-      <div className=" flex-col flex justify-between items-center lg:sticky top-0 py-2 bg-main z-20">
-        <div className="flex justify-between items-center w-full">
+    <div className="App m-4 ">
+      <div className=" lg:flex flex-col justify-between items-center sticky top-0 py-2 bg-main z-20">
+        <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <ControlButtons
             {...stopWatchProps}
             showRomanji={showRomanji}
             handleShowRomanji={toggleShowRomanji}
             handleReset={handleReset}
-          />
-          <div className="w-full flex flex-col items-end">
-            <p>
+          >
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex justify-center align-center ${
+                showFilters ? "bg-blue-600" : ""
+              }`}
+            >
+              {showFilters ? <BiShow /> : <BiHide />}
+            </button>
+          </ControlButtons>
+
+          <div className="w-full md:w-1/2 flex lg:flex-col items-center justify-between lg:items-end">
+            <p className="lg:w-full text-right">
               Showing {selectedSource.length} of {source[selected].length}
             </p>
+            <p>Correct: {verifiedWords.length}</p>
             <Timer {...stopWatchProps} defaultTime={stopWatchProps.time} />
           </div>
         </div>
-        <ul className="grid grid-cols-2 gap-4 lg:flex lg:flex-wrap lg:items-start lg:justify-start lg:space-x-4  w-full">
-          {types.map((type, i) => (
-            <li className="w-full md:w-auto" key={i}>
-              <button
-                className={`md:w-40 ${selected === type ? "bg-blue-600" : ""}`}
-                onClick={() => setSelected(type)}
-              >
-                {`${type[0].toUpperCase()}${type.slice(1, type.length + 1)}`}
-              </button>
+        {showFilters && (
+          <ul className="grid grid-cols-3 gap-2 md:grid-cols-2 lg:gap-4 lg:flex lg:flex-wrap lg:items-start lg:justify-start lg:space-x-4  w-full">
+            {types.map((type, i) => (
+              <li className="w-full md:w-auto" key={i}>
+                <button
+                  className={`md:w-40 ${
+                    selected === type ? "bg-blue-600" : ""
+                  }`}
+                  onClick={() => handleSelected(type)}
+                >
+                  {`${type[0].toUpperCase()}${type.slice(1, type.length + 1)}`}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="bg-gray-700 shadow-xl p-4 rounded">
+        <h2 className="font-bold text-2xl lg:pl-2 lg:ml-12 mb-4">
+          Selected: {selected}
+        </h2>
+        <ul className="relative z-10 grid w-full gap-2 gap-y-6">
+          {selectedSource.map((item, key) => (
+            <li className="lg:pl-2 lg:ml-12">
+              <TextCheck
+                showRomanji={showRomanji}
+                key={`${item.hiragana}-${key}`}
+                item={item}
+                isStarted={stopWatchProps.isActive}
+                startGame={stopWatchProps.handleStart}
+                handleVerified={handleVerified}
+              />
             </li>
           ))}
         </ul>
       </div>
-      <ul className="relative z-10 grid w-full gap-2 bg-gray-700 shadow-xl p-4 rounded gap-y-6 lg:list-decimal">
-        {selectedSource.map((item, key) => (
-          <li className="lg:pl-2 lg:ml-12">
-            <TextCheck
-              showRomanji={showRomanji}
-              key={`${item.hiragana}-${key}`}
-              item={item}
-              isStarted={stopWatchProps.isActive}
-              startGame={stopWatchProps.handleStart}
-            />
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };

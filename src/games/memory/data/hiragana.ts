@@ -75,9 +75,9 @@ export const hiragana: charactersType[] = [
   { romanji: "myo", hiragana: "みょ" },
   // Y
   { romanji: "ya", hiragana: "や" },
-  { romanji: "(i)", hiragana: "（い" },
+  { romanji: "(i)", hiragana: "い" },
   { romanji: "yu", hiragana: "ゆ" },
-  { romanji: "(e)", hiragana: "（え" },
+  { romanji: "(e)", hiragana: "え" },
   { romanji: "yo", hiragana: "よ" },
   // R
   { romanji: "ra", hiragana: "ら" },
@@ -91,9 +91,9 @@ export const hiragana: charactersType[] = [
   { romanji: "ryo", hiragana: "りょ" },
   // W
   { romanji: "wa", hiragana: "わ" },
-  { romanji: "(i)", hiragana: "（い" },
-  { romanji: "(u)", hiragana: "（う" },
-  { romanji: "(e)", hiragana: "（え" },
+  { romanji: "(i)", hiragana: "い" },
+  { romanji: "(u)", hiragana: "う" },
+  { romanji: "(e)", hiragana: "え" },
   { romanji: "o", hiragana: "を" },
   // N
   { romanji: "n", hiragana: "ん" },

@@ -9,6 +9,7 @@ import useDocumentTitle from "../../hooks/useDocumentTitle";
 import Input from "../components/Input";
 import { hiragana, charactersType } from "./data/hiragana";
 import { randomDeck, shuffle } from "../utils/shuffle";
+import { toast } from "react-toastify";
 
 const confetti = createConfetti();
 
@@ -87,7 +88,6 @@ const Memory: FC<{
     setClicks(0);
     const data = randomDeck(source);
     setCharacters(shuffle([...data, ...data]));
-    confetti.clear();
   };
 
   const handleShowAll = () => {
@@ -126,7 +126,14 @@ const Memory: FC<{
   useEffect(() => {
     if (found.length === characters.length / 2) {
       stopWatchProps.handlePauseResume();
-      confetti.render();
+      toast.success(
+        <div>
+          <p>Good job! You got all the answers correct.</p>
+          <button className="bg-blue-600" onClick={reset}>
+            Try again!
+          </button>
+        </div>
+      );
     }
   }, [found, characters]);
 
@@ -139,7 +146,7 @@ const Memory: FC<{
   return (
     <div className="App w-full p-4">
       <Video hide={hide} />
-      <div className=" flex-col flex justify-between items-center sticky top-0 py-2 bg-main z-20">
+      <div className=" lg:flex flex-col justify-between items-center sticky top-0 py-2 bg-main z-20">
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <ControlButtons
             {...stopWatchProps}
@@ -148,8 +155,8 @@ const Memory: FC<{
             toggleHide={toggleHide}
             showAll={handleShowAll}
           />
-          <div className="w-full md:w-1/2 flex flex-col items-end">
-            <p className="w-full text-right">
+          <div className="w-full md:w-1/2 flex lg:flex-col items-center justify-between lg:items-end">
+            <p className="lg:w-full text-right">
               Found: ({found.length}/{characters.length / 2})
             </p>
             <p className="text-right">Clicks: ({clicks})</p>
@@ -189,7 +196,7 @@ const Memory: FC<{
         )}
       </div>
 
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
+      <div className="relative z-10 grid grid-cols-4  lg:grid-cols-5 w-full gap-4 bg-gray-700 shadow-xl p-4 rounded">
         {filteredCharacters.map((item, index) => (
           <Card
             found={!!found.find((found) => found === item[type])}

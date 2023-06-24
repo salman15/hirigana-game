@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import Notes from "../games/components/Notes";
 import Conversations from "../games/conversation/Conversations";
 import ConversationsWithFilters from "../games/conversation/ConverstationsWithFilters";
 import { conversations } from "../games/conversation/data/conversations";
@@ -106,5 +107,9 @@ export const router = createBrowserRouter([
   {
     path: "/practice-words",
     element: <PracticeWords />,
+  },
+  {
+    path: "/grammar-notes",
+    element: <Notes />,
   },
 ]);

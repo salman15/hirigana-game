@@ -8,14 +8,19 @@ const PracticeWords: FC = () => {
   useDocumentTitle("🎯 Hiragana game ");
 
   const [translate, setTranslate] = useState("");
+  const [translationType, setTranslationType] = useState<
+    "hiragana" | "katakana"
+  >("hiragana");
   const [search, setSearch] = useState("");
 
   const findTranslation = () => {
     const translateWords: string[] = [];
 
     words.forEach((word) => {
-      if (!!word.translation.find((word) => translate.includes(word)))
-        translateWords.push(word.hiragana);
+      const foundWord = word.translation.find((word) =>
+        translate.includes(word)
+      );
+      if (!!foundWord) translateWords.push(word.hiragana);
     });
 
     return translateWords.join(" ");
@@ -29,9 +34,11 @@ const PracticeWords: FC = () => {
 
   const filteredCharacters = words.filter(
     (filter) =>
-      filter.romanji.includes(search.toLowerCase()) ||
-      filter.hiragana.includes(search.toLowerCase()) ||
-      filter.translation.includes(search.toLowerCase())
+      filter.romanji.toLowerCase().includes(search.toLowerCase()) ||
+      filter.hiragana.toLowerCase().includes(search.toLowerCase()) ||
+      !!filter.translation.find((translation) =>
+        translation.toLowerCase().includes(search.toLowerCase())
+      )
   );
 
   return (

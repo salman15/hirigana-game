@@ -2,6 +2,7 @@ export type conversationType = {
   hiragana: string;
   romanji: string;
   translation: string[];
+  explanation?: string;
 };
 export const conversations: conversationType[] = [
   // 31-01-2023
