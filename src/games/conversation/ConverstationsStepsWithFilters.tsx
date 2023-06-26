@@ -9,7 +9,7 @@ import { shuffle } from "../utils/shuffle";
 import TextCheck from "./TextCheck";
 import { conversationType } from "./data/conversations";
 
-const ConversationsWithFilters: FC<{
+const ConversationsStepsWithFilters: FC<{
   random: Record<string, conversationType[]>;
   source: Record<string, conversationType[]>;
   noRandom?: boolean;
@@ -17,6 +17,7 @@ const ConversationsWithFilters: FC<{
   const types = Object.keys(source);
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
+  const [step, setStep] = useState(0);
   const [data, setData] = useState(noRandom ? source : random);
   const [showRomanji, setShowRomanji] = useState(false);
   const [selected, setSelected] = useState<string>(types[0]);
@@ -27,10 +28,11 @@ const ConversationsWithFilters: FC<{
 
   const handleReset = () => {
     const dataCopy = source[selected]?.concat();
-    const random = shuffle(dataCopy).slice(0, 12);
+    const random = shuffle(dataCopy).slice(0, 48);
     setData({ ...source, [selected]: random });
     stopWatchProps.handleReset();
     setVerifiedWords([]);
+    setStep(0);
   };
 
   useEffect(() => {
@@ -54,6 +56,14 @@ const ConversationsWithFilters: FC<{
       setVerifiedWords([...verifiedWords, conversation]);
   };
 
+  const handleStep = () => {
+    const nextStep = step + 1;
+    if (nextStep < selectedSource.length) {
+      setStep(nextStep);
+      window.scrollTo(0, 1);
+    }
+  };
+
   const handleSelected = (select: string) => {
     setSelected(select);
     toast.info(`Changed to: ${select}`);
@@ -61,7 +71,6 @@ const ConversationsWithFilters: FC<{
     if (verifiedWords.length > 0) setVerifiedWords([]);
     if (showFilters) setShowFilters(false);
   };
-
   return (
     <div className="App m-4 ">
       <div className=" lg:flex flex-col justify-between items-center sticky top-0 py-2 bg-main z-20">
@@ -72,7 +81,7 @@ const ConversationsWithFilters: FC<{
             handleShowRomanji={toggleShowRomanji}
             handleReset={() => {
               toast.success("Reset the game!");
-              handleReset;
+              handleReset();
             }}
           >
             <button
@@ -110,27 +119,39 @@ const ConversationsWithFilters: FC<{
           </ul>
         )}
       </div>
-      <div className="bg-gray-700 shadow-xl p-4 rounded">
-        <h2 className="font-bold text-2xl lg:pl-2 lg:ml-12 mb-4">
-          Selected: {selected}
-        </h2>
-        <ul className="relative z-10 grid w-full gap-2 gap-y-6">
-          {selectedSource.map((item, key) => (
-            <li className="lg:pl-2 lg:ml-12">
-              <TextCheck
-                showRomanji={showRomanji}
-                key={`${item.hiragana}-${key}`}
-                item={item}
-                isStarted={stopWatchProps.isActive}
-                startGame={stopWatchProps.handleStart}
-                handleVerified={handleVerified}
-              />
-            </li>
+      <div className="grid grid-cols-1 w-full bg-gray-700 shadow-xl p-4 space-y-4 rounded">
+        <h2 className="font-bold text-2xl">Selected: {selected}</h2>
+        <ul className="relative grid grid-cols-12 lg:flex lg:flex-row justify-between z-10 w-full ">
+          {selectedSource.map((__, key) => (
+            <li
+              className={`w-2 h-2 rounded-full ${
+                step > key
+                  ? "bg-green-600"
+                  : step === key
+                  ? "bg-blue-600"
+                  : "bg-gray-600"
+              }`}
+            />
           ))}
         </ul>
+        {selectedSource.map((item, key) => {
+          return key === step ? (
+            <TextCheck
+              showRomanji={showRomanji}
+              item={item}
+              isStarted={stopWatchProps.isActive}
+              startGame={stopWatchProps.handleStart}
+              handleVerified={handleVerified}
+              onClick={handleStep}
+              isOne
+            />
+          ) : (
+            <></>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default ConversationsWithFilters;
+export default ConversationsStepsWithFilters;

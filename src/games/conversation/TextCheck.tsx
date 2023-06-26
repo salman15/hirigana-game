@@ -8,6 +8,8 @@ type TextCheckType = {
   handleVerified: (item: conversationType) => void;
   isStarted: boolean;
   showRomanji: boolean;
+  isOne?: boolean;
+  onClick?: () => void;
 };
 
 const TextCheck: FC<TextCheckType> = ({
@@ -16,10 +18,12 @@ const TextCheck: FC<TextCheckType> = ({
   startGame,
   handleVerified,
   showRomanji,
+  isOne,
+  onClick,
 }) => {
   const [showTranslation, setShowTranslation] = useState(false);
   const [translation, setTranslation] = useState("");
-  const [emoji, setEmoji] = useState<string>();
+  const [emoji, setEmoji] = useState<"✅" | "❌" | "">("");
 
   const findTranslation = (translation: string) => {
     return !!item.translation.find(
@@ -28,13 +32,20 @@ const TextCheck: FC<TextCheckType> = ({
   };
 
   const isTranslated = findTranslation(translation);
-
   const verify = () => {
-    const emoji = isTranslated ? "✅" : "❌";
-    setEmoji(emoji);
-    setShowTranslation(!showTranslation);
+    if (!isOne) {
+      const emoji = isTranslated ? "✅" : "❌";
+      setShowTranslation(!showTranslation);
+      setEmoji(emoji);
+    } else if (!isTranslated) {
+      setShowTranslation(true);
+    }
+
     !isStarted && startGame();
-    if (isTranslated) handleVerified(item);
+    if (isTranslated) {
+      handleVerified(item);
+      if (onClick) onClick();
+    }
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +61,13 @@ const TextCheck: FC<TextCheckType> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center  p-4 bg-gray-800 bg-opacity-20 ">
+    <div
+      className={
+        isOne
+          ? "grid grid-cols-1 gap-4 items-center p-4  bg-gray-800 bg-opacity-20 "
+          : "grid grid-cols-1 md:grid-cols-2 gap-4 items-center  p-4 bg-gray-800 bg-opacity-20 "
+      }
+    >
       <div>
         <p className="text-2xl lg:text-4xl">{item.hiragana}</p>
         {showRomanji && (
@@ -78,15 +95,19 @@ const TextCheck: FC<TextCheckType> = ({
         )}
       </div>
       <div className="flex flex-col lg:items-end space-y-4">
-        <div className="flex space-x-4 lg:w-full ">
+        <div className={`flex space-x-4 ${isOne ? "w-full" : "lg:w-full"} `}>
           <Input
+            onKeyDown={(event) => event.key === "Enter" && verify()}
+            defaultValue={""}
             onChange={handleInput}
-            className="w-conversationInput lg:w-full max-w-full"
+            className={`w-conversationInput ${
+              isOne ? "w-full" : "lg:w-full"
+            } max-w-full`}
             name="translation"
             placeholder="Translate this sentence."
           />
           <button onClick={verify} className="">
-            Verify {emoji}
+            {isOne ? "Next" : `Verify ${emoji}`}
           </button>
         </div>
       </div>

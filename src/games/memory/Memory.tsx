@@ -150,10 +150,13 @@ const Memory: FC<{
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <ControlButtons
             {...stopWatchProps}
-            handleReset={reset}
+            handleReset={() => {
+              reset(), toast.success("Reset the game!");
+            }}
             hide={hide}
             toggleHide={toggleHide}
             showAll={handleShowAll}
+            isPractice={showAll}
           />
           <div className="w-full md:w-1/2 flex lg:flex-col items-center justify-between lg:items-end">
             <p className="lg:w-full text-right">

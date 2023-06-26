@@ -2,15 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Notes from "../games/components/Notes";
 import Conversations from "../games/conversation/Conversations";
-import ConversationsWithFilters from "../games/conversation/ConverstationsWithFilters";
+import ConversationsStepsWithFilters from "../games/conversation/ConverstationsStepsWithFilters";
 import { conversations } from "../games/conversation/data/conversations";
-import { words, wordsObj } from "../games/conversation/data/words";
+import { wordsObj } from "../games/conversation/data/words";
 import { days } from "../games/conversation/data/words/days";
 import { dayOfTheMonth, months } from "../games/conversation/data/words/months";
 import { numbers } from "../games/conversation/data/words/numbers";
+import Memory from "../games/memory/Memory";
 import { hiragana } from "../games/memory/data/hiragana";
 import { katakana } from "../games/memory/data/katakana";
-import Memory from "../games/memory/Memory";
 import PracticeMemory from "../games/practice/PracticeMemory";
 import PracticeWords from "../games/practice/PracticeWords";
 import { randomDeck, shuffle } from "../games/utils/shuffle";
@@ -20,7 +20,7 @@ const randomConversations = randomDeck(dataCopyConversations);
 
 const randomWords = {
   ...wordsObj,
-  all: randomDeck(wordsObj.all.concat().slice(0, 12)),
+  all: shuffle(wordsObj.all.concat().slice(0, 48)),
 };
 
 const copyDays = days.concat();
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
   {
     path: "/words",
     element: (
-      <ConversationsWithFilters random={randomWords} source={wordsObj} />
+      <ConversationsStepsWithFilters random={randomWords} source={wordsObj} />
     ),
   },
   {

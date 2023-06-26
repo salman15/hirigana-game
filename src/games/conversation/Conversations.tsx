@@ -6,6 +6,7 @@ import useStopWatch from "../hooks/useStopWatch";
 import { shuffle } from "../utils/shuffle";
 import { conversationType } from "./data/conversations";
 import TextCheck from "./TextCheck";
+import { toast } from "react-toastify";
 
 const Conversations: FC<{
   random: conversationType[];
@@ -41,7 +42,10 @@ const Conversations: FC<{
             {...stopWatchProps}
             showRomanji={showRomanji}
             handleShowRomanji={toggleShowRomanji}
-            handleReset={handleReset}
+            handleReset={() => {
+              toast.success("Reset the game!");
+              handleReset;
+            }}
           />
           <div className="w-full md:w-1/2 flex lg:flex-col items-center justify-between lg:items-end">
             <p className="lg:w-full text-right">

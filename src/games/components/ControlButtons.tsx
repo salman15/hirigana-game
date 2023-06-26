@@ -12,6 +12,7 @@ const ControlButtons: FC<{
   hide?: boolean;
   isPaused?: boolean;
   isActive?: boolean;
+  isPractice?: boolean;
   showRomanji?: boolean;
   children?: ReactNode;
 }> = ({
@@ -22,6 +23,7 @@ const ControlButtons: FC<{
   showAll,
   isPaused,
   isActive,
+  isPractice,
   hide,
   showRomanji,
   handleShowRomanji,
@@ -79,11 +81,11 @@ const ControlButtons: FC<{
             {!hide ? <BiMoviePlay /> : <BiMovie />}
           </button>
         )}
-        {isActive ? ActiveButtons : StartButton}
+        {isPractice ? <></> : isActive ? ActiveButtons : StartButton}
         {showAll && (
           <button
             className={`flex justify-center align-center ${
-              isActive ? "bg-blue-600" : ""
+              isPractice ? "bg-blue-600" : ""
             }`}
             onClick={showAll}
           >
