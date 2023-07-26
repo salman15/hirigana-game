@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Input from "../components/Input";
 import { conversationType } from "./data/conversations";
 
@@ -24,6 +24,10 @@ const TextCheck: FC<TextCheckType> = ({
   const [showTranslation, setShowTranslation] = useState(false);
   const [translation, setTranslation] = useState("");
   const [emoji, setEmoji] = useState<"✅" | "❌" | "">("");
+
+  useEffect(() => {
+    window.scrollTo(0, 1);
+  }, [isOne]);
 
   const findTranslation = (translation: string) => {
     return !!item.translation.find(

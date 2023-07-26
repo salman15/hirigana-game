@@ -14,6 +14,7 @@ import { katakana } from "../games/memory/data/katakana";
 import PracticeMemory from "../games/practice/PracticeMemory";
 import PracticeWords from "../games/practice/PracticeWords";
 import { randomDeck, shuffle } from "../games/utils/shuffle";
+import Guess from "../games/guess/Guess";
 
 const dataCopyConversations = conversations.concat();
 const randomConversations = randomDeck(dataCopyConversations);
@@ -111,5 +112,9 @@ export const router = createBrowserRouter([
   {
     path: "/grammar-notes",
     element: <Notes />,
+  },
+  {
+    path: "/guess",
+    element: <Guess source={randomWords} />,
   },
 ]);

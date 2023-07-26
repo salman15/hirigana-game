@@ -15,6 +15,7 @@ const ConversationsStepsWithFilters: FC<{
   noRandom?: boolean;
 }> = ({ random, source, noRandom }) => {
   const types = Object.keys(source);
+
   useDocumentTitle("💬 Hiragana game ");
   const stopWatchProps = useStopWatch();
   const [step, setStep] = useState(0);
@@ -60,7 +61,6 @@ const ConversationsStepsWithFilters: FC<{
     const nextStep = step + 1;
     if (nextStep < selectedSource.length) {
       setStep(nextStep);
-      window.scrollTo(0, 1);
     }
   };
 
